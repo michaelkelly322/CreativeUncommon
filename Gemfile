@@ -9,6 +9,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :development do
+  gem 'rails_layout'
+end
+
 group :test do
   gem 'selenium-webdriver'
   gem 'capybara', '2.1.0'
