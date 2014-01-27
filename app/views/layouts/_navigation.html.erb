@@ -1,23 +1,24 @@
-<%# navigation styled for Bootstrap 3.0 %>
+<!--<%# navigation styled for Bootstrap 3.0 %>-->
 <nav class="navbar headbar navbar-fixed-top">
   <div class="container">
-  	<h1>Creative</h1>
-  	<h1>Uncommons</h1>
+  	<%= image_tag("logo.png", alt: "Logo") %>
   </div>
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-    </div>
+  <div class="row centered">
+  	<div class="col-xs-12 col-md-6 centered">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      
+	    </div>
+	    <div class="collapse navbar-collapse">
+	      <ul class="nav navbar-nav centered">
+	        <%= render 'layouts/navigation_links' %>
+	      </ul>
+	    </div>
+	</div>
   </div>
 </nav>
