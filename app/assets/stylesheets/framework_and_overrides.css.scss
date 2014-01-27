@@ -11,6 +11,20 @@ img {
   font-size: inherit;
   }
 
+.headbar {
+  @extend .navbar-inverse;
+  background-color: #162E0F;
+  
+  h1 {
+    color: #BAD2AD;
+    text-align: center;
+  }
+}
+
+.title-container {
+  
+}
+
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
@@ -37,7 +51,7 @@ main {
   background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  margin-top: 102px; // accommodate the navbar
   @include make-row();
   }
 section {
