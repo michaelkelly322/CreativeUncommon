@@ -13,6 +13,9 @@ describe User do
   it { should respond_to(:first_name)}
   it { should respond_to(:last_name)}
   it { should respond_to(:email)}
+  it { should respond_to(:email_confirmation)}
+  it { should respond_to(:bio)}
+  it { should respond_to(:username)}
   
   # Authentication Attrs
   it { should respond_to(:password)}
