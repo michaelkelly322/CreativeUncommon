@@ -9,7 +9,11 @@ TreeHouse::Application.routes.draw do
   # root 'welcome#index'
   root 'site#home'
   
-  match '/signup',  to: 'users#new',            via: 'get'
+  # => SIte Routes
+    match '/signup',  to: 'users#new',    via: 'get'
+    match '/guide',   to: 'site#guide',   via: 'get'
+    match '/about',   to: 'site#about',   via: 'get'
+    match '/faq',     to: 'site#faq',     via: 'get'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
