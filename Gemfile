@@ -46,6 +46,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'nokogiri'
 
 group :production do
   gem 'pg', '0.15.1'
