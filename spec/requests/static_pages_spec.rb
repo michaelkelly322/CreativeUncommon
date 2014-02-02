@@ -9,6 +9,8 @@ describe "Site pages" do
     it { should have_link("User Guide", href: guide_path)}
     it { should have_link("FAQ", href: faq_path)}
     it { should have_link("About Us", href: about_path)}
+    it { should have_link("Login", href: login_path)}
+    it { should have_link("Signup", href: signup_path)}
   end
   
   describe "Home" do
