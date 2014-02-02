@@ -6,6 +6,13 @@ describe "User pages", type: :feature do
   describe "signin" do
     before { visit signup_path }
     
+    it { should have_field("First Name")}
+    it { should have_field("Last Name")}
+    it { should have_field("Bio")}
+    it { should have_field("Email")}
+    it { should have_field("Password")}
+    it { should have_field("Confirm Password")}
+    
     let(:submit) { "Create Account" }
     
     describe "with invalid information" do

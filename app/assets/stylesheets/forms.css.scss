@@ -1,0 +1,24 @@
+
+@import "framework_and_overrides.css.scss";
+
+.form-label {
+  float: left;
+  
+  :before, :after {
+    clear: both;
+  }
+}
+
+.form-input {
+  float: right;
+  
+  :before, :after {
+    clear: both;
+  }
+}
+
+.form-row {
+  @include make-row();
+}
+
+

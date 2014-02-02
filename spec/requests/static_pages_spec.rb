@@ -19,6 +19,8 @@ describe "Site pages" do
   describe "FAQ" do
     before { visit faq_path }
     it { should have_title("FAQ")}
+    
+    it { should have_content("FAQ")}
   end
   
   describe "About Us" do
@@ -29,5 +31,7 @@ describe "Site pages" do
   describe "User Guide" do
     before { visit guide_path }
     it { should have_title("User's Guide")}
+    
+    it { should have_content("User's Guide")}
   end
 end
