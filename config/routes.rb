@@ -10,8 +10,8 @@ TreeHouse::Application.routes.draw do
   root 'site#home'
   
   # => Site Routes
-    match '/login',   to: 'sessions#new',     via: 'get'
-    match '/logout',  to: 'session#destroy',  via: 'delete'
+    match '/signin',   to: 'sessions#new',     via: 'get'
+    match '/logout',  to: 'sessions#destroy',  via: 'delete'
     match '/signup',  to: 'users#new',        via: 'get'
     match '/guide',   to: 'site#guide',       via: 'get'
     match '/about',   to: 'site#about',       via: 'get'
