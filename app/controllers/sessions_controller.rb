@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       # => Successful login: signin and redirect to user dashboard
     else
       # => Unsuccessful login: provide error message and re-render new
-      flash[:error] = 'Invalid username/password combination'
+      flash.now[:error] = 'Invalid username/password combination'
       render 'new'
     end
   end
