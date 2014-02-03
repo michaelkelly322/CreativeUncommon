@@ -35,7 +35,8 @@ describe "Authentication" do
     describe "with valid information" do
       it "should create a session"
       it "should change page with user context"
-      it "should update backend for login"
+      it "should update backend/monitoring for login"
+      it "should do otherstuff as well"
     end
   end
 end

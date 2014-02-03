@@ -8,6 +8,6 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    
+    # => Destory It!
   end
 end
