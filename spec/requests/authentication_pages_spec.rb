@@ -18,7 +18,7 @@ describe "Authentication" do
     
     describe "Signup from login" do
       it { should have_content("Don't have an account?")}
-      it { should have_selector('a', value: "Signup")}
+      it { should have_link("Signup", href: signup_path)}
     end
   end
   
