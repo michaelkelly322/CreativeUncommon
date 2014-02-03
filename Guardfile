@@ -2,6 +2,10 @@
 # More info at https://github.com/guard/guard#readme
 require 'active_support/inflector'
 
+guard :shell do
+	watch('.*') { 'git status' }
+end
+
 guard :bundler do
 	watch('Gemfile')
 end
