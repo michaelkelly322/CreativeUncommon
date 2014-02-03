@@ -34,9 +34,12 @@ describe "Authentication" do
     
     describe "with valid information" do
       it "should create a session"
-      it "should change page with user context"
+      it "should redirect to the user's profile"
+      it "should remove login/signup links"
+      it "should provide link logout"
+      it "should provide account settings link"
+      it "should provide logged in specific links"
       it "should update backend/monitoring for login"
-      it "should do otherstuff as well"
     end
   end
 end
