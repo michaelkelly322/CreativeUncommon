@@ -27,6 +27,8 @@ group :test do
   gem 'rb-notifu'
   gem 'win32console'
   gem 'wdm'
+  
+  gem 'factory_girl_rails'
 end
 
 # Use SCSS for stylesheets
