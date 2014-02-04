@@ -46,11 +46,13 @@ describe "Authentication" do
         click_button "Sign In"
       end
       
-      it "should create a session"
-      it "should redirect to the user's profile"
-      it "should remove login/signup links"
-      it "should provide link logout"
-      it "should provide account settings link"
+      it { should have_title(user.name) }
+      it { should have_link('Logout') }
+      it { should have_link('Account Settings') }
+      
+      it { should_not have_link('Login') }
+      it { should_not have_link('Signup') }
+      
       it "should provide logged in specific links"
       it "should update backend/monitoring for login"
     end
