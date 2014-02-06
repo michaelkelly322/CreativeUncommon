@@ -19,6 +19,12 @@ module SessionsHelper
     end
   end
   
+  def sign_out
+    current_user.update_attribute(:session_key, User.encrypt(User.new_session_key))
+    session[:session_key] = ""
+    self.current_user = nil
+  end
+  
   def signed_in?
     !current_user.nil?
   end

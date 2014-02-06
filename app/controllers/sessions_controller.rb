@@ -20,5 +20,7 @@ class SessionsController < ApplicationController
   
   def destroy
     # => Delete action used to delete the session (logging out)
+    sign_out
+    redirect_to root_url
   end
 end
