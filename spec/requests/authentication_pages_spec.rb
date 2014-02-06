@@ -54,8 +54,10 @@ describe "Authentication" do
       it { should_not have_link('Login') }
       it { should_not have_link('Signup') }
       
-      it "should provide logged in specific links"
-      it "should update backend/monitoring for login"
+      describe "followed by signout" do
+        before { click_link "Logout" }
+        it { should have_link('Login') }
+      end
     end
   end
 end
