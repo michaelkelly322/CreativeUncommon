@@ -46,7 +46,8 @@ describe "Authentication" do
         click_button "Sign in"
       end
       
-      it { should have_title(user.name) }
+      it { should have_title(user.first_name) }
+      it { should have_link('Profile') }
       it { should have_link('Logout') }
       it { should have_link('Account Settings') }
       
