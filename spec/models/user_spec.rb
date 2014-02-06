@@ -21,6 +21,8 @@ describe User do
   it { should respond_to(:password)}
   it { should respond_to(:password_confirmation)}
   it { should respond_to(:password_digest)}
+  it { should respond_to(:session_key) }
+  it { should respond_to(:authenticate) }
   
   it { should be_valid}
   
@@ -117,5 +119,10 @@ describe User do
   describe "when password is too short" do
     before { @user.password_confirmation = @user.password = "a" * 7 }
     it { should_not be_valid }
+  end
+  
+  describe "session key" do
+    before { @user.save }
+    its(:session_key) { should_not be_blank }
   end
 end 

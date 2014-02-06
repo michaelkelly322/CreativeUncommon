@@ -19,4 +19,20 @@ class User < ActiveRecord::Base
   
   # => Callbacks
   before_save { self.email = email.downcase }
+  before_create :create_session_key
+  
+  # => Class methods
+  def User.new_session_key
+    SecureRandom.urlsafe_base64
+  end
+  
+  def User.encrypt(key)
+    Digest::SHA1.hexdigest(key.to_s)
+  end
+  
+  # => Private methods
+  private
+    def create_session_key
+      self.session_key = User.encrypt(User.new_session_key)
+    end
 end
