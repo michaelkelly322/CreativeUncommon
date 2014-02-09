@@ -95,6 +95,11 @@ main {
   
   
   }
+  
+#alert-box {
+  margin-top: -24px;
+  position: fixed;
+}
 section {
   @extend .row;
   margin-top: 20px;
