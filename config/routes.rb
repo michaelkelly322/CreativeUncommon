@@ -1,7 +1,7 @@
 TreeHouse::Application.routes.draw do
   resources :users
-  get "users/new"
-  get "site/home"
+  resources :sessions, only: [:new, :create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,11 +9,13 @@ TreeHouse::Application.routes.draw do
   # root 'welcome#index'
   root 'site#home'
   
-  # => SIte Routes
-    match '/signup',  to: 'users#new',    via: 'get'
-    match '/guide',   to: 'site#guide',   via: 'get'
-    match '/about',   to: 'site#about',   via: 'get'
-    match '/faq',     to: 'site#faq',     via: 'get'
+  # => Site Routes
+    match '/signin',   to: 'sessions#new',     via: 'get'
+    match '/logout',  to: 'sessions#destroy',  via: 'delete'
+    match '/signup',  to: 'users#new',        via: 'get'
+    match '/guide',   to: 'site#guide',       via: 'get'
+    match '/about',   to: 'site#about',       via: 'get'
+    match '/faq',     to: 'site#faq',         via: 'get'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

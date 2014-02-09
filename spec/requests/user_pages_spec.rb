@@ -33,6 +33,15 @@ describe "User pages", type: :feature do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count)
       end
+      
+      describe "after saving the user" do
+        before { click_button submit }
+        let(:user) { User.find_by(email: "michaelkelly322@gmail.com") }
+        
+        it { should have_link('Logout') }
+        it { should have_title(user.first_name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+      end
     end
   end
 end
