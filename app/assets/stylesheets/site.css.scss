@@ -1,23 +1,16 @@
 // Place all the styles related to the Site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/ 
-@import "framework_and_overrides";
+@import "shared/layout_helpers";
 
 .main-row {
   max-width: 1170px;
 }
 
  .floating-grid {
-   @include make-row();
-   .left {
-    @include make-md-column(6);
-   }
-   
-   .middle {
-     @include make-md-column(6);
-   }
-   
-   .right {
-     @include make-md-column(6);
-   }
+   @include bm-make-grid(3);
+//   @include make-row();
+//   div {
+//     @include bm-make-grid-cell(3);
+//   }
  }
