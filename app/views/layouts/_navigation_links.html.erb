@@ -8,9 +8,11 @@
 	<%= link_to 'Login', signin_path, class: ' nav-tile' %>
 	<%= link_to 'Signup', signup_path, class: 'nav-tile' %>
 <% else %>
-	<ul>
+<!--	<ul>
 		<li id="user-menu" class="dropdown">
-			<a href='#' class="dropdown-toggle" data-toggle="dropdown">
+			
+-->
+			<a href='#' class="dropdown-toggle nav-tile" data-toggle="dropdown">
 				Account<b class="caret"></b>
 			</a>
 			<ul class="dropdown-menu">
@@ -19,6 +21,8 @@
 				<li class="divider"></li>
 				<li><%= link_to 'Logout', logout_path, method: "delete" %></li>
 			</ul>
+<!--
 		</li>
 	</ul>
+-->
 <% end %>
