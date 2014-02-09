@@ -16,6 +16,7 @@ describe "Site pages" do
   describe "Home" do
     before { visit root_path }
     it { should have_title("Home")}
+    it { should have_selector('div.floating-grid') }
   end
   
   describe "FAQ" do
