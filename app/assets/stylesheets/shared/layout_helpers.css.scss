@@ -10,9 +10,20 @@
 @mixin bm-make-grid($max-across) {
   @include make-row();
   
-  div {
+  div.cell {
     @include bm-make-grid-cell($max-across);
+    
+    padding: 0px;
   }
 }
 
-
+@mixin bm-make-content-panel($rel-width) {
+  float: none;
+  margin: 0 auto;
+  
+  @include make-xs-column();
+  @include make-sm-column();
+  @include make-md-column();
+  @include make-lg-column();
+  @include make-
+}
