@@ -17,13 +17,11 @@
   }
 }
 
-@mixin bm-make-content-panel($rel-width) {
+@mixin bm-make-content-panel($rel-width, $back-color) {
+  width: $rel-width;
+  
+  background-color: $back-color;
+  
   float: none;
   margin: 0 auto;
-  
-  @include make-xs-column();
-  @include make-sm-column();
-  @include make-md-column();
-  @include make-lg-column();
-  @include make-
 }

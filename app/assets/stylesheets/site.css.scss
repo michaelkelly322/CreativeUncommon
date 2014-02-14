@@ -9,8 +9,13 @@
 
  .floating-grid {
    @include bm-make-grid(3);
-//   @include make-row();
-//   div {
-//     @include bm-make-grid-cell(3);
-//   }
  }
+
+.content-panel {
+  @include bm-make-content-panel(95%, $creative-purp-l);
+  
+  box-shadow: 0px 0px 5px $color-pri;
+  
+  padding-left: 15px;
+  padding-right: 15px;
+}
