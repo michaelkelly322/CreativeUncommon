@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # => Constants
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_PWD_REGEX = /\A(?=.*[a-zA-Z])(?=.*[0-9]).{8,}\z/  # minimum 8 characters, must contain 1 letter and 1 number
   
   # => Password infrastructure
   has_secure_password
@@ -15,7 +16,9 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   
-  validates :password, length: { minimum: 8 }
+  validates :password, length: { minimum: 8 },
+                       format: { with: VALID_PWD_REGEX }
+                       
   
   # => Callbacks
   before_save { self.email = email.downcase }
