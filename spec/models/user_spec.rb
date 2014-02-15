@@ -4,8 +4,8 @@ describe User do
   before { @user = User.new(first_name: "Michael",
                             last_name: "Kelly",
                             email: "michaelkelly322@gmail.com",
-                            password: "password",
-                            password_confirmation: "password")}
+                            password: "password1",
+                            password_confirmation: "password1")}
   
   subject {@user}
   
@@ -118,6 +118,16 @@ describe User do
   
   describe "when password is too short" do
     before { @user.password_confirmation = @user.password = "a" * 7 }
+    it { should_not be_valid }
+  end
+  
+  describe "when password doesn't contain a number" do
+    before { @user.password_confirmation = @user.password = "a" * 8 }
+    it { should_not be_valid }
+  end
+  
+  describe "when password doesn't contain a alpha" do
+    before { @user.password_confirmation = @user.password = "2" * 8 }
     it { should_not be_valid }
   end
   
