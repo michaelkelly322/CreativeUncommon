@@ -1,0 +1,37 @@
+<h1>Listing works</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Blurb</th>
+      <th>Title</th>
+      <th>Author name</th>
+      <th>Body</th>
+      <th>Mature</th>
+      <th>Draft</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.blurb %></td>
+        <td><%= work.title %></td>
+        <td><%= work.author_name %></td>
+        <td><%= work.body %></td>
+        <td><%= work.mature %></td>
+        <td><%= work.draft %></td>
+        <td><%= link_to 'Show', work %></td>
+        <td><%= link_to 'Edit', edit_work_path(work) %></td>
+        <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work', new_work_path %>
