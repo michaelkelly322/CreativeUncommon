@@ -16,6 +16,7 @@ describe User do
   it { should respond_to(:email_confirmation)}
   it { should respond_to(:bio)}
   it { should respond_to(:username)}
+  it { should respond_to(:works)}
   
   # Authentication Attrs
   it { should respond_to(:password)}

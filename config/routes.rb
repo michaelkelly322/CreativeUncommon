@@ -1,4 +1,6 @@
 TreeHouse::Application.routes.draw do
+  resources :works
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

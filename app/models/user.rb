@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   # => Password infrastructure
   has_secure_password
   
+  has_many :works
+  
   validates :email,
             presence: true,
             length: { maximum: 50 },

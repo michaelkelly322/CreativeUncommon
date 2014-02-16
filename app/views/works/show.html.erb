@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Blurb:</strong>
+  <%= @work.blurb %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @work.title %>
+</p>
+
+<p>
+  <strong>Author name:</strong>
+  <%= @work.author_name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @work.body %>
+</p>
+
+<p>
+  <strong>Mature:</strong>
+  <%= @work.mature %>
+</p>
+
+<p>
+  <strong>Draft:</strong>
+  <%= @work.draft %>
+</p>
+
+<%= link_to 'Edit', edit_work_path(@work) %> |
+<%= link_to 'Back', works_path %>
