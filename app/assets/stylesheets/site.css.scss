@@ -7,8 +7,16 @@
   max-width: 1170px;
 }
 
- .floating-grid {
+ .floating-grid3 {
    @include bm-make-grid(3);
+ }
+ 
+ .floating-grid2 {
+  @include bm-make-grid(2);
+ }
+ 
+ .mini-grid2 {
+  @include bm-make-grid-d(1,2,2,3);
  }
 
 .content-panel {
@@ -18,4 +26,8 @@
   
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.content-pane {
+  @include bm-make-content-panel(95%, transparent);
 }
