@@ -1,0 +1,10 @@
+*.psd
+*.pdf
+*.xcf
+
+*.sqlite3
+
+/doc
+/test
+/spec
+/app/assets/images/orig
