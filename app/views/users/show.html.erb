@@ -1,1 +1,17 @@
-<% provide(:title, current_user.first_name) %>
+
+
+<% provide(:title, @user.first_name + ' ' + @user.last_name) %>
+
+
+
+<div class="content-panel">
+	<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
+	
+	<% if signed_in? %>
+	<% if current_user.email == @user.email %>
+		<p><%= @user.email %></p>
+	<% end %>
+	<% end %>
+	
+	<p><%= @user.bio %></p>
+</div>
