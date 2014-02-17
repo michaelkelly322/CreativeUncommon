@@ -3,6 +3,41 @@ require 'spec_helper'
 describe "User pages", type: :feature do
   subject { page }
   
+  describe "profile" do
+    let(:user1) { FactoryGirl.create(:user) }
+    let(:user2) { FactoryGirl.create(:user) }
+    
+    describe "viewed as anonymous user" do
+      before { visit user_path(user1) }
+      
+      it { should have_title(user1.first_name + ' ' + user1.last_name) }
+      it { should have_content(user1.first_name + ' ' + user1.last_name) }
+      it { should have_content(user1.bio) }
+      
+      it { should_not have_content(user1.email) }
+      it { should_not have_link('Edit') }
+    end
+    
+    describe "viewed as the logged in user" do
+      before do
+        visit signin_path
+        fill_in 'Username or Email', with: user1.email
+        fill_in 'Password', with: user1.password
+        click_button 'Sign in'
+      end
+    
+      it { should have_title(user1.first_name + ' ' + user1.last_name) }
+      it { should have_content(user1.first_name + ' ' + user1.last_name) }
+      it { should have_content(user1.bio) }
+      it { should have_content(user1.email) }
+      it { should have_link('Edit') }
+    end
+    
+    describe "viewed as a logged in user" do
+      it "should have content viewable by other logged in users"
+    end
+  end
+  
   describe "signin" do
     before { visit signup_path }
     
