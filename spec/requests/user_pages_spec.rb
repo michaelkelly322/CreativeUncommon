@@ -8,14 +8,7 @@ describe "User pages", type: :feature do
     let(:user2) { FactoryGirl.create(:user) }
     
     describe "viewed as anonymous user" do
-      before { visit user_path(user1) }
-      
-      it { should have_title(user1.first_name + ' ' + user1.last_name) }
-      it { should have_content(user1.first_name + ' ' + user1.last_name) }
-      it { should have_content(user1.bio) }
-      
-      it { should_not have_content(user1.email) }
-      it { should_not have_link('Edit') }
+      it "should have content viewable by the public (author's public profile)"
     end
     
     describe "viewed as the logged in user" do
@@ -27,10 +20,43 @@ describe "User pages", type: :feature do
       end
     
       it { should have_title(user1.first_name + ' ' + user1.last_name) }
+      
+      # => Follow content
+      it "should have follow content like following #, followers #, sampling of avatars, etc."
+      
+      # => Messages content
+      describe "messages panel" do
+        it "should have messages title"
+        
+        describe "with no messages" do
+          it "should have no messages output"
+        end
+        
+        describe "with messages" do
+          it "should have content related to the message"
+        end
+      end
+      
+      # => Stories content
+      describe "stories panel" do
+        it "should have stories title"
+        
+        describe "with no stories" do
+          it "should have no stories message"
+        end
+        
+        describe "with stories" do
+          it "should have story specific content"
+        end
+      end
+      
+      # => Profile content
       it { should have_content(user1.first_name + ' ' + user1.last_name) }
       it { should have_content(user1.bio) }
       it { should have_content(user1.email) }
       it { should have_link('Edit') }
+      
+      # => Stats content
     end
     
     describe "viewed as a logged in user" do
