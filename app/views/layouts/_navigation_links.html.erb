@@ -1,8 +1,8 @@
 <%# add navigation links to this file %>
 <%= link_to 'Home', root_path, class: 'nav-tile' %>
-<%= link_to 'User Guide', guide_path, class: 'nav-tile' %>
+<%= link_to 'Guide', guide_path, class: 'nav-tile' %>
 <%= link_to 'FAQ', faq_path, class: 'nav-tile' %>
-<%= link_to 'About Us', about_path, class: ' nav-tile' %>
+<%= link_to 'About', about_path, class: ' nav-tile' %>
 
 <% if !signed_in? %>
 	<%= link_to 'Login', signin_path, class: ' nav-tile' %>

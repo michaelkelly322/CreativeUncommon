@@ -1,1 +1,56 @@
-<% provide(:title, current_user.first_name) %>
+
+
+<% provide(:title, @user.first_name + ' ' + @user.last_name) %>
+
+<!-- Tailored "What's New" horizontal across top -->
+<div class="content-pane">
+	<%= render "user_whats_new" %>
+</div>
+
+<div class="floating-grid3">	
+	<div class="cell">
+		<!-- Followers/Following half-size top left col -->
+		<div class="content-pane">
+			<%= render "user_follow_small" %>
+		</div>
+		
+		<!-- Messages half-sized bottom left col -->	
+		<div class="content-pane">
+			<%= render "user_messages_small" %>
+		</div>
+	</div>
+	
+	<!-- My stories full pane middle -->
+	<div class="cell">
+		<div class="content-pane">
+			<%= render "user_stories" %>
+			
+		</div>
+	</div>
+	
+	<div class="cell">
+		<!-- Profile half-sized top right col -->
+		<div class="content-pane">
+			<%= render "user_profile_small" %>
+		</div>
+	
+		<!-- "My Stats" half-sized bottom right col -->
+		<div class="content-pane">
+			<%= render "user_stats_small" %>
+		</div>
+	</div>
+</div>
+
+<!--
+<div class="content-panel">
+	<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
+	
+	<% if signed_in? %>
+	<% if current_user.email == @user.email %>
+		<p><%= @user.email %></p>
+	<% end %>
+	<% end %>
+	
+	<p><%= @user.bio %></p>
+</div>
+-->
