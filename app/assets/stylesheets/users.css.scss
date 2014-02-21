@@ -5,5 +5,25 @@
 @import "shared/layout_helpers.css.scss";
 
 .half-height {
-  height: 200px;
+  max-height: 200px;
+}
+
+.gravatar-wrap-80 {
+  height: 80px;
+  width: 80px;
+  
+  margin-left: -15px;
+}
+
+.left-adjust {
+  margin-left: -15px;
+}
+
+.gravatar {
+  margin-left: -1px;
+}
+
+.profile-top {
+  padding-bottom: 10px;
+  white-space: nowrap;
 }

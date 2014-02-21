@@ -1,3 +1,13 @@
 <div class="content-panel half-height">
-	<h1>Profile SM</h1>
+	<div class="floating-grid3 profile-top">
+		<div class="cell">
+			<%= gravatar_for @user %>
+		</div>
+		<div class="cell">
+			<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+			<%= mail_to @user.email %>
+		</div>
+	</div>
+	
+	<div><%= @user.bio %></div>
 </div>

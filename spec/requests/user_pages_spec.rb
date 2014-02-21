@@ -22,7 +22,9 @@ describe "User pages", type: :feature do
       it { should have_title(user1.first_name + ' ' + user1.last_name) }
       
       # => Follow content
-      it "should have follow content like following #, followers #, sampling of avatars, etc."
+      it "should accurately reflect the number of followers and followed"
+      it { should have_content('Followers') }
+      it { should have_content('Following') }
       
       # => Messages content
       describe "messages panel" do
