@@ -10,6 +10,11 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
+    @work.increment(:read_count)
+    
+    if !@work.save
+      flash[:failure] = "Could not increment read_count"
+    end
   end
 
   # GET /works/new
