@@ -31,6 +31,10 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
 
+    if signed_in?
+      @work.user = current_user
+    end
+
     respond_to do |format|
       if @work.save
         format.html { redirect_to @work, notice: 'Work was successfully created.' }
