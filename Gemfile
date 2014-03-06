@@ -6,13 +6,13 @@ gem 'rails', '4.0.3'
 # Use sqlite3 for the database for Active Record
 group :development, :test do
   gem 'sqlite3', '1.3.9'
-  gem 'rspec-rails'
-  gem 'guard-rspec'
+  gem 'rspec-rails', '2.14.1'
+  gem 'guard-rspec', '4.2.8'
   
-  gem 'spork-rails'
-  gem 'guard-spork'
-  gem 'guard-bundler'
-  gem 'guard-shell'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.1'
+  gem 'guard-bundler', '2.0.0'
+  gem 'guard-shell', '0.6.1'
   gem 'childprocess'
 end
 
