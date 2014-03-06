@@ -10,6 +10,11 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
+    @work.increment(:read_count)
+    
+    if !@work.save
+      flash[:failure] = "Could not increment read_count"
+    end
   end
 
   # GET /works/new
@@ -25,6 +30,10 @@ class WorksController < ApplicationController
   # POST /works.json
   def create
     @work = Work.new(work_params)
+
+    if signed_in?
+      @work.user = current_user
+    end
 
     respond_to do |format|
       if @work.save

@@ -1,3 +1,14 @@
 <div class="content-panel">
 	<h1>Stories</h1>
+	
+	<% @user.works.each do |w| %>
+		<div class="floating-grid2">
+			<div class="cell">
+				<%= w.title %>
+			</div>
+			<div class="cell" style="text-align: right;">
+				<%= w.read_count %>
+			</div>
+		</div>
+	<% end %>
 </div>
