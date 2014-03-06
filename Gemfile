@@ -17,7 +17,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'rails_layout'
+  gem 'rails_layout', '1.0.10'
 end
 
 group :test do
