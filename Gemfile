@@ -13,7 +13,7 @@ group :development, :test do
   gem 'guard-spork', '1.5.1'
   gem 'guard-bundler', '2.0.0'
   gem 'guard-shell', '0.6.1'
-  gem 'childprocess'
+  gem 'childprocess', '0.5.1'
 end
 
 group :development do
