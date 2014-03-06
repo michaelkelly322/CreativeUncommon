@@ -21,7 +21,7 @@ group :development do
 end
 
 group :test do
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.40.0'
   gem 'capybara', '2.1.0'
   
   gem 'rb-notifu'
