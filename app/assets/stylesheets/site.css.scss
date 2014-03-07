@@ -20,7 +20,7 @@
  }
 
 .content-panel {
-  @include bm-make-content-panel(95%, $creative-purp-l);
+  @include bm-make-content-panel(95%, #a79196);
   
   box-shadow: 0px 0px 5px $color-pri;
   
