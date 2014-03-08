@@ -11,4 +11,13 @@ class Work < ActiveRecord::Base
               length: { maximum: 250 }
               
   validates :body, presence: true
+  
+  # => Callbacks
+  before_save { self.word_count = count_words(self.body)}
+  
+  # => Private Methods
+  private
+    def count_words(str)
+      str.split.size
+    end
 end
