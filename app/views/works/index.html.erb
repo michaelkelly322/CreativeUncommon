@@ -49,10 +49,12 @@
 	<% iters = 0 %>
 	<% @works.each do |work| %>
 		<div class="<%= iters.even? ? 'list-item-even' : 'list-item-odd' %>">
+			<a href="/works/<%= work.id %>" style="height: 100%; width: 100%;">
 			<div class="pull-left"><img style="height: 60px;" src="#" /></div>
 			<div><%= work.title %></div>
 			<div><%= link_to work.author_name, work.user %></div>
 			<div><%= work.blurb %></div>
+			</a>
 		</div>
 		<% iters = iters + 1 %>
 	<% end %>
