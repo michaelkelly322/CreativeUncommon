@@ -10,15 +10,7 @@
 			</div>
 			
 			<div class="cell">
-				<select id="genre-search-input" name="work[genre]">
-					<option value='' selected='selected'>Select...</option>
-					<% GENRE_CONFIG.keys.each do |k| %>
-						<option disabled="disabled"><%= k.capitalize %></option>
-						<% GENRE_CONFIG[k].keys.each do |l| %>
-							<option value='<%= l %>'><%= GENRE_CONFIG[k][l] %></option>
-						<% end %>
-					<% end %>
-				</select>
+				<%= genre_select_tag 'work[genre]' %>
 			</div>
 		</div>
 			
