@@ -24,6 +24,10 @@
     <%= f.text_field :author_name %>
   </div>
   <div class="field">
+  	<%= f.label :genre %><br>
+    <%= genre_select_tag 'work[genre]'%>
+  </div>
+  <div class="field">
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>

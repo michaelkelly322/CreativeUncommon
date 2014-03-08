@@ -71,7 +71,7 @@ class WorksController < ApplicationController
   # POST /works.json
   def create
     @work = Work.new(work_params)
-
+    
     if signed_in?
       @work.user = current_user
     end
@@ -119,6 +119,6 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.require(:work).permit(:blurb, :title, :author_name, :body, :mature, :draft)
+      params.require(:work).permit(:blurb, :title, :author_name, :body, :mature, :draft, :genre)
     end
 end
