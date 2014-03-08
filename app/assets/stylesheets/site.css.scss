@@ -31,3 +31,22 @@
 .content-pane {
   @include bm-make-content-panel(100%, transparent);
 }
+
+.data-list {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  
+  margin-top: 15px;
+  
+  .list-item-even {
+    background-color: #a79fa1;
+    margin-bottom: 5px;
+  }
+  
+  .list-item-odd {
+    background-color: #bfbfbf;
+    margin-bottom: 5px;
+  }
+}

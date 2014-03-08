@@ -1,37 +1,59 @@
-<h1>Listing works</h1>
+<% provide(:title, 'Search for Stories')%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Blurb</th>
-      <th>Title</th>
-      <th>Author name</th>
-      <th>Body</th>
-      <th>Mature</th>
-      <th>Draft</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 centered content-panel">
+	<%= form_tag search_path, id: 'story-search', method: :get do%>	
+		<h1>Search for Stories</h1>
+		
+		<div class="floating-grid2">
+			<div class="cell">
+				<label>Genre:</label>
+			</div>
+			
+			<div class="cell">
+				<select id="genre-search-input" name="work[genre]">
+					<option value="">Select...</option>
+					<option>Genre 1</option>
+					<option>Genre 2</option>
+					<option>Genre 3</option>
+				</select>
+			</div>
+		</div>
+			
+		<div class="floating-grid2">
+			<div class="cell">
+				<label>Author:</label>
+			</div>
+			
+			<div class="cell">
+				<%= search_field_tag "work[author]", params.has_key?("work") && params[:work].has_key?("author") ? params[:work][:author] : "" %>
+			</div>
+		</div>
+		
+		<div class="floating-grid2">
+			<div class="cell">
+				<label>Title:</label>
+			</div>
+			
+			<div class="cell">
+				<%= search_field_tag "work[title]", params.has_key?("work") && params[:work].has_key?("title") ? params[:work][:title] : "" %>
+			</div>
+		</div>
+		
+		<div class="centered">
+			<%= submit_tag "Search" %>
+		</div>
+	<% end %>
+</div>	
 
-  <tbody>
-    <% @works.each do |work| %>
-      <tr>
-        <td><%= work.blurb %></td>
-        <td><%= work.title %></td>
-        <td><%= work.author_name %></td>
-        <td><%= work.body %></td>
-        <td><%= work.mature %></td>
-        <td><%= work.draft %></td>
-        <td><%= link_to 'Show', work %></td>
-        <td><%= link_to 'Edit', edit_work_path(work) %></td>
-        <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Work', new_work_path %>
+<div class="data-list content-panel">
+	<% iters = 0 %>
+	<% @works.each do |work| %>
+		<div class="<%= iters.even? ? 'list-item-even' : 'list-item-odd' %>">
+			<div class="pull-left"><img style="height: 60px;" src="#" /></div>
+			<div><%= work.title %></div>
+			<div><%= link_to work.author_name, work.user %></div>
+			<div><%= work.blurb %></div>
+		</div>
+		<% iters = iters + 1 %>
+	<% end %>
+</div>

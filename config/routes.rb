@@ -18,6 +18,7 @@ TreeHouse::Application.routes.draw do
     match '/guide',   to: 'site#guide',       via: 'get'
     match '/about',   to: 'site#about',       via: 'get'
     match '/faq',     to: 'site#faq',         via: 'get'
+    match '/search',  to: 'works#search',      via:  'get'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

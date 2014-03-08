@@ -7,6 +7,38 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
+  def search
+    conditions = Array.new
+    arguments = Hash.new
+    
+    if !params[:work].nil? && !params[:work][:title].nil?
+      unless params[:work][:title].blank?
+        conditions << 'title LIKE :title'
+        arguments[:title] = "%#{params[:work][:title]}"
+      end
+    end
+    
+    if !params[:work].nil? && !params[:work][:author].nil?
+      unless params[:work][:author].blank?
+        conditions << 'author_name LIKE :author'
+        arguments[:author] = "%#{params[:work][:author]}"
+      end
+    end
+    
+    if !params[:work].nil? && !params[:work][:genre].nil?
+      unless params[:work][:genre].blank?
+        conditions << 'genre LIKE :genre'
+        arguments[:genre] = "%#{params[:work][:genre]}"
+      end
+    end
+    
+    all_conditions = conditions.join(' AND ')
+    
+    @works = Work.find(:all, conditions: [all_conditions, arguments])
+                       
+    render action: 'index'
+  end
+
   # GET /works/1
   # GET /works/1.json
   def show
