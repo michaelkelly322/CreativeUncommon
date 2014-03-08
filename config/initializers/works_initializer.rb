@@ -1,0 +1,1 @@
+LENGTH_CONFIG = YAML.load_file(Rails.root.join('config', 'length_config.yml')) unless defined?(LENGTH_CONFIG)

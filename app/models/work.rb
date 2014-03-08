@@ -10,7 +10,9 @@ class Work < ActiveRecord::Base
               presence: true,
               length: { maximum: 250 }
               
-  validates :body, presence: true
+  validates :body,
+              presence: true,
+              length: {maximum: 4294967296 }
   
   # => Callbacks
   before_save { self.word_count = count_words(self.body)}

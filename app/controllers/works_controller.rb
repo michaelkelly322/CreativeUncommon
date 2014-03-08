@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  include LengthHelper
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
   # GET /works
@@ -29,6 +30,14 @@ class WorksController < ApplicationController
       unless params[:work][:genre].blank?
         conditions << 'genre LIKE :genre'
         arguments[:genre] = "%#{params[:work][:genre]}"
+      end
+    end
+    
+    if !params[:work].nil? && !params[:work][:length].nil?
+      unless params[:work][:length].blank?
+        conditions << 'word_count >= :min AND word_count <= :max'
+        arguments[:min] = get_length_min(params[:work][:length])
+        arguments[:max] = get_length_max(params[:work][:length])
       end
     end
     
