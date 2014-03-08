@@ -1,0 +1,28 @@
+# Genres for drop-downs and story categorization
+# Be careful when modifying, the database must be updated with any changes
+# orphaned genres are a problem
+fiction:
+  fairytale: Fairy Tale
+  fantasy: Fantasy
+  historical: Historical
+  horror: Horror
+  humor: Humor
+  metafiction: Metafiction
+  mystery: Mystery
+  poetry: Poetry
+  realistic: Realistic
+  sciencefiction: Science Fiction
+  literaryfiction: Literary Fiction
+  erotica: Erotica
+  adventure: Adventure
+  western: Western
+  fanfiction: Fan Fiction
+
+nonfiction:
+  biography: Biography
+  creativenonfiction: Creative Nonfiction
+  essay: Essay
+  historical: Historical
+  religious: Religious
+  philosophy: Philosophy
+  political: Political
