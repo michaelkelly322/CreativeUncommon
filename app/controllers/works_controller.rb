@@ -5,7 +5,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all
+    @works = Work.where(draft: false)
   end
 
   def search
@@ -41,6 +41,9 @@ class WorksController < ApplicationController
       end
     end
     
+    conditions << 'draft = :draft'
+    arguments[:draft] = false
+    
     all_conditions = conditions.join(' AND ')
     
     @works = Work.find(:all, conditions: [all_conditions, arguments])
@@ -52,6 +55,14 @@ class WorksController < ApplicationController
   # GET /works/1.json
   def show
     @work.increment(:read_count)
+    
+    if @work.draft?
+      if !current_user.nil?
+        if current_user.id != @work.user.id
+          flash[:failure] = "This story is not currently published."
+        end
+      end
+    end
     
     if !@work.save
       flash[:failure] = "Could not increment read_count"
@@ -71,6 +82,7 @@ class WorksController < ApplicationController
   # POST /works.json
   def create
     @work = Work.new(work_params)
+    @work.draft = false
     
     if signed_in?
       @work.user = current_user
@@ -79,6 +91,27 @@ class WorksController < ApplicationController
     respond_to do |format|
       if @work.save
         format.html { redirect_to @work, notice: 'Work was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @work }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @work.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  # POST /drafts
+  # POST /drafts.json
+  def create_draft
+    @work = Work.new(work_params)
+    @work.draft = true
+    
+    if signed_in?
+      @work.user = current_user
+    end
+
+    respond_to do |format|
+      if @work.save
+        format.html { redirect_to @work, notice: 'Draft was successfully saved.' }
         format.json { render action: 'show', status: :created, location: @work }
       else
         format.html { render action: 'new' }
@@ -119,6 +152,6 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.require(:work).permit(:blurb, :title, :author_name, :body, :mature, :draft, :genre)
+      params.require(:work).permit(:blurb, :title, :author_name, :body, :mature, :genre)
     end
 end

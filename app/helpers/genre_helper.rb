@@ -1,7 +1,7 @@
 module GenreHelper
-  def genre_select_tag(name)
+  def genre_select_tag(name, opt={})
     out = ''
-    out << tag('select', name: name, id: 'select-' + name) 
+    out << tag('select', name: name, class: opt[:class].nil? ? "" : opt[:class], id: 'select-' + name) 
     out << '<option value="" selected="selected">Select...</option>'
     
     GENRE_CONFIG.keys.each do |k|

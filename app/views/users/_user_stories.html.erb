@@ -1,6 +1,6 @@
 <div class="content-panel">
 	<h1>Stories</h1>
-	
+	<%= link_to "Post a Story", new_work_path, class: "btn btn-large"%>
 	<% @user.works.each do |w| %>
 		<div class="floating-grid2">
 			<div class="cell">
