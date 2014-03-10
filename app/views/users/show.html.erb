@@ -36,16 +36,8 @@
 		</div>
 		
 		<!-- Most popular story -->
-		<div class="content-panel">
-			<div class="list-item-even">
-				<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
-				<div class="pull-left"><img style="height: 60px;" src="#" /></div>
-				<div><%= @popular.title %></div>
-				<div><%= link_to @popular.author_name, @popular.user %></div>
-				<div><%= @popular.blurb %></div>
-				</a>
-			</div>
-		</div>
+		<% @works = [@popular] %>
+		<%= render 'works/works_list' %>
 	</div>
 	
 	
