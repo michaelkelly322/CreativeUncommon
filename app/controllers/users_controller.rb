@@ -21,6 +21,15 @@ class UsersController < ApplicationController
     @popular = @user.works.order(read_count: :desc).first
   end
   
+  def edit
+    if signed_in?
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+      redirect_to @user
+    end
+  end
+  
   private
   
     def user_params

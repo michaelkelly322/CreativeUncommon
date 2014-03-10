@@ -1,5 +1,6 @@
-<% provide(:title, 'Signup')%>
-<%= page_title_tag "Joingraphx.png" %>
+<% provide(:title, @user.first_name + ' ' + @user.last_name)%>
+<%= page_title_tag "EditProfile.png"%>
+
 <div class="row">
 	<div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 centered content-panel">
 		<%= form_for(@user) do |f| %>

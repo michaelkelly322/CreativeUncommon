@@ -1,34 +1,24 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Blurb:</strong>
-  <%= @work.blurb %>
-</p>
+<div class="col-lg-2">
+	<div class="content-panel">
+		<%= @work.blurb %>
+	</div>
+	<div class="content-panel">
+		Social
+	</div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @work.title %>
-</p>
+<div class="col-lg-8">
+	<div class="content-panel">
+		<div class="reading-pane">
+			<%= @work.body %>
+		</div>
+	</div>
+</div>
 
-<p>
-  <strong>Author name:</strong>
-  <%= @work.author_name %>
-</p>
+<div class="col-lg-2">
+	<div class="content-panel fixed-donate">
+		<a href="#"><%= image_tag "Donate.png" %></a>
+	</div>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @work.body %>
-</p>
-
-<p>
-  <strong>Mature:</strong>
-  <%= @work.mature %>
-</p>
-
-<p>
-  <strong>Draft:</strong>
-  <%= @work.draft %>
-</p>
-
-<%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', works_path %>
