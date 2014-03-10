@@ -1,7 +1,6 @@
 class SiteController < ApplicationController
   def home
-    @message_wel = "Welcome to the Tree-House."
-    @message_sorry = "We're working very hard to get up and running."
+    
   end
   
   def guide
@@ -14,5 +13,11 @@ class SiteController < ApplicationController
   
   def faq
     
+  end
+  
+  def stats
+    @donated = 0.0;
+    @total_works = Work.count(:id)
+    @total_words = Work.sum(:word_count)
   end
 end

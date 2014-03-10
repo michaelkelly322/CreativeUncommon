@@ -20,6 +20,7 @@ TreeHouse::Application.routes.draw do
     match '/faq',     to: 'site#faq',         via: 'get'
     match '/search',  to: 'works#search',      via:  'get'
     match '/stories', to: 'users#stories',    via: 'get'
+    match '/stats/', to: 'site#stats',        via: 'get'
     
   # => Post routes
     match '/drafts',  to: 'works#create_draft',via: 'post'
