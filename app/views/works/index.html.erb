@@ -2,11 +2,9 @@
 
 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 centered content-panel">
 	<%= form_tag search_path, id: 'story-search', method: :get do%>	
-		<h1>Search for Stories</h1>
-		
 		<div class="floating-grid2">
 			<div class="cell">
-				<label>Genre:</label>
+				<label>Genre</label>
 			</div>
 			
 			<div class="cell">
@@ -16,7 +14,7 @@
 		
 		<div class="floating-grid2">
 			<div class="cell">
-				<label>Length:</label>
+				<label>Length</label>
 			</div>
 			
 			<div class="cell">
@@ -26,7 +24,7 @@
 			
 		<div class="floating-grid2">
 			<div class="cell">
-				<label>Author:</label>
+				<label>Author</label>
 			</div>
 			
 			<div class="cell">
@@ -36,7 +34,7 @@
 		
 		<div class="floating-grid2">
 			<div class="cell">
-				<label>Title:</label>
+				<label>Title</label>
 			</div>
 			
 			<div class="cell">
@@ -45,7 +43,7 @@
 		</div>
 		
 		<div class="centered">
-			<%= submit_tag "Search" %>
+			<br /><%= submit_tag "Search", class: 'btn btn-large bttn centered' %>
 		</div>
 	<% end %>
 </div>	

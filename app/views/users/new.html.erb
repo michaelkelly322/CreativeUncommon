@@ -1,6 +1,6 @@
 <% provide(:title, 'Signup')%>
 <div class="row">
-	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 centered content-panel" style="margin-top: 80px;">
+	<div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 centered content-panel" style="margin-top: 80px;">
 		<%= form_for(@user) do |f| %>
 		
 			<%= render 'users/user_error_messages' %>
@@ -27,7 +27,7 @@
 			
 			<div class="form-row">
 				<%= f.label :bio, "Bio", class: "form-label" %>
-				<%= f.text_area :bio, class: "form-input" %>
+				<%= f.text_area :bio, class: "form-input small" %>
 			</div>
 			
 			<div class="form-row">
@@ -36,11 +36,11 @@
 			</div>
 			
 			<div class="form-row">
-				<%= f.label :password_confirmation, "Confirm Password", class: "form-label" %>
+				<%= f.label :password_confirmation, "Confirm", class: "form-label" %>
 				<%= f.password_field :password_confirmation, class: "form-input" %>
 			</div>
 		
-			<%= f.submit "Create Account", class: "btn btn-large btn-primary centered"%>
+			<br /><%= f.submit "Create Account", class: "btn btn-large bttn centered"%>
 		<% end %>
 	</div>
 </div>
