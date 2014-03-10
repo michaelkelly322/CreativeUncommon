@@ -3,11 +3,11 @@
 @import "colors.css.scss";
 
 .pull-left, .pull-right {
-  before {
+  :before {
     clear: both;
   }
   
-  after {
+  :after {
     clear: both;
   }
 }
