@@ -1,4 +1,5 @@
 <% provide(:title, 'Signup')%>
+<%= page_title_tag "Joingraphx.png" %>
 <div class="row">
 	<div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 centered content-panel" style="margin-top: 80px;">
 		<%= form_for(@user) do |f| %>
@@ -13,11 +14,6 @@
 			<div class="form-row">
 				<%= f.label :last_name, "Last Name", class: "form-label" %>
 				<%= f.text_field :last_name, class: "form-input" %>
-			</div>
-			
-			<div class="form-row">
-				<%= f.label :username, "Username", class: "form-label" %>
-				<%= f.text_field :username, class: "form-input" %>
 			</div>
 			
 			<div class="form-row">
