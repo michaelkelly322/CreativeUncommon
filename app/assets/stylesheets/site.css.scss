@@ -25,10 +25,13 @@
   box-shadow: 0px 0px 5px $color-pri;
   
   padding: 15px;
+  
+  overflow: auto;
 }
 
 .content-pane {
   @include bm-make-content-panel(100%, transparent);
+  
 }
 
 .data-list {
