@@ -4,8 +4,8 @@
 		<div class="<%= iters.even? ? 'list-item-even' : 'list-item-odd' %> ">
 			<div class="pull-right" style="text-align: right">
 				<div>Reads   <%= work.read_count %></div>
-				<div>Downloads   <%=  %></div>
-				<div>Donated   <%=  %></div>
+				<div>Downloads   <%= work.downloaded %></div>
+				<div>Donated   <%= work.donated %></div>
 			</div>
 			<a href="/works/<%= work.id %>" style="height: 100%; width: 100%;">
 				<div class="pull-left"><img style="height: 60px;" src="#" /></div>
