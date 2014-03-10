@@ -6,12 +6,23 @@
 		<div class="content-panel">
 			<a href="/faq"><%= image_tag 'FAQ Newb Guide.png' %></a>
 		</div>
-		<div class="content-panel">
-			<a href="/signup"><%= image_tag "JoinNow.png" %></a>
-		</div>
+		
+		<% if !signed_in? %>
+			<div class="content-panel">
+				<a href="/signup"><%= image_tag "JoinNow.png" %></a>
+			</div>
+		<% else %>
+			<div class="content-panel">
+				<%= image_tag 'Followers.png', height: '161' %>
+			</div>
+		<% end %>
+		
 		<div class="content-panel">
 			<%= image_tag "What'sNew.png" %>
 		</div>
+		
+		
+		
 	</div>
 	<div class="cell">
 		<div class="content-panel">
@@ -23,14 +34,31 @@
 		<div class="content-panel">
 			<a href="/search"><%= image_tag "BrowseStories.png" %></a>
 		</div>
+		
+		<% if signed_in? %>
+			<div class="content-panel">
+				<%= image_tag 'ProfileEdit.png' %>
+			</div>
+		<% end %>
+		
 	</div>
 	<div class="cell">
 		<div class="content-panel">
 			<%= image_tag "Stats.png" %>
 		</div>
-		<div class="content-panel">
-			<a href="/signin"><%= image_tag "LogIn.png" %></a>
-		</div>
+		
+		<% if !signed_in? %>
+			<div class="content-panel">
+				<a href="/signin"><%= image_tag "LogIn.png" %></a>
+			</div>
+		<% else %>
+			<div class="content-panel">
+				<a href='<%= logout_path %>' method="delete"><%= image_tag 'Log Out.png' %></a>
+			</div>
+			<div class="content-panel">
+				<a href="/works/new"><%= image_tag 'PostStory.png', height: '170', width: '220' %></a>
+			</div>
+		<% end %>
 	</div>
 </div>
 
