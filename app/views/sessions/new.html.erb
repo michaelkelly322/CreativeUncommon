@@ -1,26 +1,21 @@
 <% provide(:title, "Sign In")%>
-<div class="content-panel">
-	<div class="floating-grid2">
-		<div class="cell">
-			<h1><%= yield :title %></h1>
-			
-			<%= form_for(:session, url: sessions_path) do |f|%>
-				<div class="mini-grid2 content-pane">
-					<%= f.label :email, "Username or Email", class: 'cell' %>
-					<%= f.text_field :email, class: 'cell' %>
-				</div>
-				<div class="mini-grid2 content-pane">
-					<%= f.label :password, class: 'cell' %>
-					<%= f.password_field :password, class: 'cell' %>
-				</div>
-				<div class="content-pane">
-					<%= f.submit "Sign in", class: "btn btn-large btn-primary"%>
-				</div>
-			<% end %>
+<div class="col-lg-5 col-md-6 col-sm-7 col-xs-7 centered content-panel">	
+	<%= form_for(:session, url: sessions_path) do |f|%>
+		<div class="form-row">
+			<%= f.label :email, "Email", class: 'cell form-label' %>
+			<%= f.text_field :email, class: 'cell form-input' %>
 		</div>
-		<div class="cell content-pane">
-			<h1>Don't have an account?</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<div class="form-row">
+			<%= f.label :password, class: 'cell form-label' %>
+			<%= f.password_field :password, class: 'cell form-input' %>
 		</div>
-	</div>
+
+		<br />
+
+		<div style="overflow: auto;">			
+			<div class="col-xs-4 "><%= f.submit "Sign in", class: "btn btn-large bttn centered"%></div>
+			<div class="col-xs-4 " style="text-align: center;">- OR -</div>
+			<div class="col-xs-4 "><%= link_to "Join Now", signup_path, class: "btn btn-large bttn centered", style: "color: #bad2ad"%></div>
+		</div>
+	<% end %>
 </div>

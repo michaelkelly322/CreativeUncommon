@@ -3,54 +3,45 @@
 <% provide(:title, @user.first_name + ' ' + @user.last_name) %>
 
 <!-- Tailored "What's New" horizontal across top -->
-<div class="content-pane">
-	<%= render "user_whats_new" %>
+<div class="floating-grid3">
+	<div class="cell">
+		<div class="content-panel">
+			<a href="/faq"><%= image_tag 'FAQ Newb Guide.png' %></a>
+		</div>
+		<div class="content-panel">
+			<%= image_tag 'Followers.png', height: '161' %>
+		</div>
+		<div class="content-panel">
+			<%= image_tag "What'sNew.png" %>
+		</div>
+		<div class="content-panel">
+			<%= image_tag 'Messaging.png', height: '200' %>
+		</div>
+	</div>
+	<div class="cell">
+		<div class="content-panel">
+			<%= image_tag 'Donate.png' %>
+		</div>
+		<div class="content-panel">
+			<%= image_tag 'ToolsandLinks.png' %>
+		</div>
+		<div class="content-panel">
+			<a href="/search"><%= image_tag 'BrowseStories.png' %></a>
+		</div>
+		<div class="content-panel">
+			<%= image_tag 'ProfileEdit.png' %>
+		</div>
+	</div>
+	<div class="cell">
+		<div class="content-panel">
+			<%= image_tag 'Stats.png' %>
+		</div>
+		<div class="content-panel">
+			<a href="/logout" method="delete"><%= image_tag 'Log Out.png' %></a>
+		</div>
+		<div class="content-panel">
+			<a href="/works/new"><%= image_tag 'PostStory.png', height: '170', width: '220' %></a>
+		</div>
+	</div>
 </div>
 
-<div class="floating-grid3">	
-	<div class="cell">
-		<!-- Followers/Following half-size top left col -->
-		<div class="content-pane">
-			<%= render "user_follow_small" %>
-		</div>
-		
-		<!-- Messages half-sized bottom left col -->	
-		<div class="content-pane">
-			<%= render "user_messages_small" %>
-		</div>
-	</div>
-	
-	<!-- My stories full pane middle -->
-	<div class="cell">
-		<div class="content-pane">
-			<%= render "user_stories" %>
-			
-		</div>
-	</div>
-	
-	<div class="cell">
-		<!-- Profile half-sized top right col -->
-		<div class="content-pane">
-			<%= render "user_profile_small" %>
-		</div>
-	
-		<!-- "My Stats" half-sized bottom right col -->
-		<div class="content-pane">
-			<%= render "user_stats_small" %>
-		</div>
-	</div>
-</div>
-
-<!--
-<div class="content-panel">
-	<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
-	
-	<% if signed_in? %>
-	<% if current_user.email == @user.email %>
-		<p><%= @user.email %></p>
-	<% end %>
-	<% end %>
-	
-	<p><%= @user.bio %></p>
-</div>
--->
