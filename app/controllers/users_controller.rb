@@ -30,6 +30,15 @@ class UsersController < ApplicationController
     end
   end
   
+  def stories
+    if !signed_in?
+      redirect_to search_path
+    end
+    
+    @user = current_user
+    @works = @user.works
+  end
+  
   private
   
     def user_params
