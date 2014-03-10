@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @popular = @user.works.order(read_count: :desc).first
   end
   
   private

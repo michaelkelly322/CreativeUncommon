@@ -5,43 +5,66 @@
 <!-- Tailored "What's New" horizontal across top -->
 <div class="floating-grid3">
 	<div class="cell">
+		<!-- Profile photo -->
 		<div class="content-panel">
-			<a href="/faq"><%= image_tag 'FAQ Newb Guide.png' %></a>
+			<%= image_tag "xxx", height: '100' %>
 		</div>
+		
+		<!-- User Bio -->
 		<div class="content-panel">
-			<%= image_tag 'Followers.png', height: '161' %>
-		</div>
-		<div class="content-panel">
-			<%= image_tag "What'sNew.png" %>
-		</div>
-		<div class="content-panel">
-			<%= image_tag 'Messaging.png', height: '200' %>
+			<%= @user.bio %>
 		</div>
 	</div>
 	<div class="cell">
+		<!-- Pen Name -->
 		<div class="content-panel">
-			<%= image_tag 'Donate.png' %>
+			<%= yield :title %>
 		</div>
+		
+		<!-- User Since -->
 		<div class="content-panel">
-			<%= image_tag 'ToolsandLinks.png' %>
+			User Since <%= @user.created_at.year %>
 		</div>
+		
+		<!-- Stories -->
 		<div class="content-panel">
-			<a href="/search"><%= image_tag 'BrowseStories.png' %></a>
+			<% if signed_in? %>
+				<a href="#"><%= image_tag "PostStory.png" %></a>
+			<% else %>
+				<a href="/search?author=<%= @user.id %>"><%= image_tag "PostStory.png"%></a>
+			<% end %>
 		</div>
+		
+		<!-- Most popular story -->
 		<div class="content-panel">
-			<%= image_tag 'ProfileEdit.png' %>
+			<div class="list-item-even">
+				<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
+				<div class="pull-left"><img style="height: 60px;" src="#" /></div>
+				<div><%= @popular.title %></div>
+				<div><%= link_to @popular.author_name, @popular.user %></div>
+				<div><%= @popular.blurb %></div>
+				</a>
+			</div>
 		</div>
 	</div>
+	
+	
 	<div class="cell">
+		<!-- User stats -->
 		<div class="content-panel">
-			<%= image_tag 'Stats.png' %>
+			<div>Stories Published: <%= @user.works.length %></div>
+			<div>Total Reads: <%= @user.works.sum(:read_count) %></div>
+			<div>Amount Donated: </div>
+			<div>Amount Recieved: </div>
 		</div>
+		
+		<!-- Donate -->
 		<div class="content-panel">
-			<a href='<%= logout_path %>' method="delete"><%= image_tag 'Log Out.png' %></a>
-		</div>
-		<div class="content-panel">
-			<a href="/works/new"><%= image_tag 'PostStory.png', height: '170', width: '220' %></a>
+			<a href="#"><%= image_tag "Donate.png"%></a>
 		</div>
 	</div>
+	
+	
+	
 </div>
 
