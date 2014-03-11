@@ -8,7 +8,7 @@ module GenreHelper
       out << '<option disabled="disabled">' << k.capitalize << '</option>'
       
       GENRE_CONFIG[k].keys.each do |l|
-        out << '<option value="' << l << '">' << GENRE_CONFIG[k][l] << '</option>' 
+        out << '<option value="' << l << '">&#160;&#160;' << GENRE_CONFIG[k][l] << '</option>' 
       end
     end
     out << '</select>'
