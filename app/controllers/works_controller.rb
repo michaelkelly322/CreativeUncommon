@@ -82,11 +82,11 @@ class WorksController < ApplicationController
   end
 
   def topdf
-    respond_to do |format|
-      format.pdf do
-        render :pdf => 'topdf'
-      end
-    end
+#    respond_to do |format|
+ #     format.pdf do
+  #      render :pdf => 'topdf'
+   #   end
+    #end
   end
 
   # POST /works

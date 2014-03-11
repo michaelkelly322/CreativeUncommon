@@ -60,7 +60,7 @@ group :doc do
 end
 
 gem 'nokogiri'
-
+gem 'prawn_rails'
 
 group :production do
   gem 'pg', '0.15.1'
