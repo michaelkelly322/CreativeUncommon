@@ -3,8 +3,11 @@
 
 <div class="row">
 	<div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 centered content-panel">
-		<%= form_for(@user) do |f| %>
 		
+		<%= image_tag url_for controller: 'users', action: 'get_user_image', type: 'image/jpeg'%>
+		
+		<%= form_for(@user) do |f| %>
+			<div class="form-row"><%= f.file_field :image %></div>
 			<%= render 'users/user_error_messages' %>
 		
 			<div class="form-row">
