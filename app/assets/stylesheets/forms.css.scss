@@ -26,9 +26,10 @@
 .form-row {
   @include make-row();
   
+  margin-bottom: 3px;
+  
   textarea.small {
     width: 200px;
-    margin-bottom: 3px;
   }
   
   input {

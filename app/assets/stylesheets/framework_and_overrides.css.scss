@@ -118,8 +118,10 @@ main {
   }
   
 #alert-box {
-  margin-top: -24px;
   position: fixed;
+  top: 90px;
+  z-index: 999;
+  opacity: .75;
 }
 section {
   @extend .row;

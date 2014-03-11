@@ -11,11 +11,20 @@
 			<a href="/search"><%= image_tag "BrowseStories.png" %></a>
 		</div>
 		
+		<% if signed_in? %>
+			<div class="content-panel">
+				<a href="/works/new"><%= image_tag 'PostStory.png', height: '170', width: '220' %></a>
+			</div>
+		<% end %>
 		
 	</div>
 	<div class="cell">
 		<div class="content-panel">
 			<%= image_tag "Donate.png" %>
+		</div>
+		
+		<div class="content-panel">
+			<%= image_tag "ToolsandLinks.png" %>
 		</div>
 		
 		<% if !signed_in? %>
@@ -28,7 +37,7 @@
 		
 		<% if signed_in? %>
 			<div class="content-panel">
-				<%= image_tag 'ProfileEdit.png' %>
+				<%= image_tag 'ProfileView.png' %>
 			</div>
 		<% end %>
 		
@@ -46,9 +55,7 @@
 			<div class="content-panel">
 				<a href='<%= logout_path %>' method="delete"><%= image_tag 'Log Out.png' %></a>
 			</div>
-			<div class="content-panel">
-				<a href="/works/new"><%= image_tag 'PostStory.png', height: '170', width: '220' %></a>
-			</div>
+			
 		<% end %>
 	</div>
 </div>
