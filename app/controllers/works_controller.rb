@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   include LengthHelper
-  before_action :set_work, only: [:show, :edit, :update, :destroy]
+  before_action :set_work, only: [:show, :edit, :update, :destroy, :topdf]
 
   # GET /works
   # GET /works.json
@@ -79,6 +79,14 @@ class WorksController < ApplicationController
 
   # GET /works/1/edit
   def edit
+  end
+
+  def topdf
+    respond_to do |format|
+      format.pdf do
+        render :pdf => 'topdf'
+      end
+    end
   end
 
   # POST /works

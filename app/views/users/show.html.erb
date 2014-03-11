@@ -29,7 +29,7 @@
 		<!-- Stories -->
 		<div class="content-panel">
 			<% if signed_in? %>
-				<a href="#"><%= image_tag "PostStory.png" %></a>
+				<a href="<%= stories_path %>"><%= image_tag "xxx.png" %></a>
 			<% else %>
 				<a href="/search?author=<%= @user.id %>"><%= image_tag "PostStory.png"%></a>
 			<% end %>

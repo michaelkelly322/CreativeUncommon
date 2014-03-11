@@ -7,20 +7,9 @@
 			<a href="/faq"><%= image_tag 'FAQ Newb Guide.png' %></a>
 		</div>
 		
-		<% if !signed_in? %>
-			<div class="content-panel">
-				<a href="/signup"><%= image_tag "JoinNow.png" %></a>
-			</div>
-		<% else %>
-			<div class="content-panel">
-				<%= image_tag 'Followers.png', height: '161' %>
-			</div>
-		<% end %>
-		
 		<div class="content-panel">
-			<%= image_tag "What'sNew.png" %>
+			<a href="/search"><%= image_tag "BrowseStories.png" %></a>
 		</div>
-		
 		
 		
 	</div>
@@ -28,12 +17,14 @@
 		<div class="content-panel">
 			<%= image_tag "Donate.png" %>
 		</div>
-		<div class="content-panel">
-			<%= image_tag "ToolsandLinks.png" %>
-		</div>
-		<div class="content-panel">
-			<a href="/search"><%= image_tag "BrowseStories.png" %></a>
-		</div>
+		
+		<% if !signed_in? %>
+			<div class="content-panel">
+				<a href="/signup"><%= image_tag "JoinNow.png" %></a>
+			</div>
+		<% else %>
+
+		<% end %>
 		
 		<% if signed_in? %>
 			<div class="content-panel">
