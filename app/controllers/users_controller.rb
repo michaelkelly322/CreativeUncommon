@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       
       send_file Rails.root.join('public', 'uploads', @user.id.to_s), :type => 'image/jpeg', :disposition => 'inline'
     else
-      send_file Rails.root.join('public', 'uploads', 'generic_user_image.png'), :type => 'image/jpeg', :disposition => 'inline'
+      send_file Rails.root.join('public', 'generic_user_image.png'), :type => 'image/jpeg', :disposition => 'inline'
     end
   end
   

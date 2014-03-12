@@ -29,15 +29,28 @@
 		<!-- Stories -->
 		<div class="content-panel">
 			<% if signed_in? %>
-				<a href="<%= stories_path %>"><%= image_tag "xxx.png" %></a>
+				<a href="<%= stories_path %>"><%= image_tag "MyStories.png" %></a>
 			<% else %>
-				<a href="/search?author=<%= @user.id %>"><%= image_tag "PostStory.png"%></a>
+				<a href="/search?author=<%= @user.id %>"><%= image_tag "MyStories.png"%></a>
 			<% end %>
 		</div>
 		
 		<!-- Most popular story -->
-		<% @works = [@popular] %>
-		<%= render 'works/works_list' %>
+		
+		<div class="content-panel">
+			<div class="list-item-even">
+				<div class="pull-right" style="text-align: right">
+					<div>Reads   <%= @popular.read_count %></div>
+					<div>Downloads   <%= @popular.downloaded %></div>
+					<div>Donated   <%= @popular.donated %></div>
+				</div>
+				<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
+					<div class="pull-left"></div>
+					<div><%= @popular.title %></div>
+				</a>
+				<div style="width: 90%;"><%= @popular.blurb %></div>
+			</div>
+		</div>
 	</div>
 	
 	
