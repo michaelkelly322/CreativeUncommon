@@ -18,13 +18,16 @@ class UsersController < ApplicationController
   
   def get_user_image
     @user = User.find(params[:id])
-    
-#    if File.exists? Rails.root.join('public', 'uploads', @user.id.to_s)
-#      send_file Rails.root.join('public', 'uploads', @user.id), :type => 'image/jpeg', :disposition => 'inline'
-#    end
-    
-    respond_to do |format|
-      format.jpg {Rails.root.join('public', 'uploads', @user.id.to_s)}
+    unless @user.image.nil?
+      unless File.exists? Rails.root.join('public', 'uploads', @user.id.to_s)
+        File.open(Rails.root.join('public', 'uploads', @user.id.to_s), 'wb') do |file|
+          file.write(@user.image)
+        end
+      end
+      
+      send_file Rails.root.join('public', 'uploads', @user.id.to_s), :type => 'image/jpeg', :disposition => 'inline'
+    else
+      send_file Rails.root.join('public', 'uploads', 'generic_user_image.png'), :type => 'image/jpeg', :disposition => 'inline'
     end
   end
   
@@ -35,12 +38,16 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    
     uploaded = params[:user][:image]
     
-    @user.update_attribute(:image, uploaded.read)
-    
-    File.open(Rails.root.join('public', 'uploads')) do |file|
-      file.write(uploaded.read)
+    unless uploaded.nil?
+      uploaded_content = uploaded.read
+      @user.update_attribute(:image, uploaded_content)
+      
+      File.open(Rails.root.join('public', 'uploads', @user.id.to_s), 'wb') do |file|
+        file.write(uploaded_content)
+      end
     end
     
     redirect_to @user

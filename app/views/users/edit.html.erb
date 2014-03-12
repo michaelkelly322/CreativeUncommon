@@ -1,46 +1,57 @@
 <% provide(:title, @user.first_name + ' ' + @user.last_name)%>
-<%= page_title_tag "EditProfile.png"%>
+<%= page_title_tag "myprofileeditgraphx.png"%>
 
-<div class="row">
-	<div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 centered content-panel">
+<%= form_for(@user) do |f| %>
+	<div class="floating-grid3">
+		<div class="cell">
+			<!-- Profile photo -->
+			<div class="content-panel">
+				<%= profile_image %>
+				<%= f.file_field :image %>
+			</div>
+			
+			<!-- User Bio -->
+			<div class="content-panel">
+				<%= f.text_area :bio, style: 'width: 100%;'%>
+			</div>
+		</div>
+		<div class="cell">
+			<!-- Pen Name -->
+			<div class="content-panel">
+				<div class="form-row"><%= f.label :first_name, 'First Name', class: 'form-label' %><%= f.text_field :first_name, class: 'form-input'%></div>
+				<div class="form-row"><%= f.label :last_name, 'Last Name', class: 'form-label' %><%= f.text_field :last_name, class: 'form-input'%></div>
+				<div class="form-row"><%= f.label :email, 'Email', class: 'form-label' %><%= f.text_field :email, class: 'form-input'%></div>
+			</div>
+			
+			<!-- User Since -->
+			<div class="content-panel">
+				User Since <%= @user.created_at.year %>
+			</div>
+			
+			<!-- Stories -->
+			<div class="content-panel">
+				<% if signed_in? %>
+					<a href="<%= stories_path %>"><%= image_tag "MyStories.png" %></a>
+				<% else %>
+					<a href="/search?author=<%= @user.id %>"><%= image_tag "PostStory.png"%></a>
+				<% end %>
+			</div>
+		</div>
 		
-		<%= image_tag url_for controller: 'users', action: 'get_user_image', type: 'image/jpeg'%>
 		
-		<%= form_for(@user) do |f| %>
-			<div class="form-row"><%= f.file_field :image %></div>
-			<%= render 'users/user_error_messages' %>
-		
-			<div class="form-row">
-				<%= f.label :first_name, "First Name", class: "form-label" %>
-				<%= f.text_field :first_name, class: "form-input"%>
+		<div class="cell">
+			<!-- User stats -->
+			<div class="content-panel">
+				<div>Stories Published: <%= @user.works.length %></div>
+				<div>Total Reads: <%= @user.works.sum(:read_count) %></div>
+				<div>Amount Donated: </div>
+				<div>Amount Recieved: </div>
 			</div>
 			
-			<div class="form-row">
-				<%= f.label :last_name, "Last Name", class: "form-label" %>
-				<%= f.text_field :last_name, class: "form-input" %>
+			<!-- Donate -->
+			<div class="content-panel">
+				<a href="#"><%= image_tag "Donate.png"%></a>
 			</div>
-			
-			<div class="form-row">
-				<%= f.label :email, "Email", class: "form-label" %>
-				<%= f.text_field :email, class: "form-input" %>
-			</div>
-			
-			<div class="form-row">
-				<%= f.label :bio, "Bio", class: "form-label" %>
-				<%= f.text_area :bio, class: "form-input small" %>
-			</div>
-			
-			<div class="form-row">
-				<%= f.label :password, "Password", class: "form-label" %>
-				<%= f.password_field  :password, class: "form-input" %>
-			</div>
-			
-			<div class="form-row">
-				<%= f.label :password_confirmation, "Confirm", class: "form-label" %>
-				<%= f.password_field :password_confirmation, class: "form-input" %>
-			</div>
-		
-			<br /><%= f.submit "Create Account", class: "btn btn-large bttn centered"%>
-		<% end %>
-	</div>
+		</div>
+	<% end %>
 </div>
