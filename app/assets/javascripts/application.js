@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+$('#dynamic-title').ready(function($) {
+  var title = $('#dynamic-title');
+  var title_panel = $('#dynamic-title').parent();
+  
+  if(title.length != 0){
+  	title.width(title.children().outerWidth() + 60);
+  	title_panel.width(title.width() + 30);
+  }
+});

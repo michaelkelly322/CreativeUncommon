@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 #    end
     
     respond_to do |format|
-      format.jpg {Rails.root.join('public', 'uploads', @user.id)}
+      format.jpg {Rails.root.join('public', 'uploads', @user.id.to_s)}
     end
   end
   
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     
     @user.update_attribute(:image, uploaded.read)
     
-    File.open(Rails.root.join('public', 'uploads', @user.id, 'wb')) do |file|
+    File.open(Rails.root.join('public', 'uploads')) do |file|
       file.write(uploaded.read)
     end
     
