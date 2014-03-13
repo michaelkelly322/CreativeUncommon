@@ -27,6 +27,7 @@ TreeHouse::Application.routes.draw do
     match '/get_user_image/:id', to: 'users#get_user_image', via: 'get'
   # => Post routes
     match '/drafts',  to: 'works#create_draft',via: 'post'
+    match '/drafts/:id',  to: 'works#save_as_draft',via: 'patch'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

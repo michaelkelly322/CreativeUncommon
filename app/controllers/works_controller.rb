@@ -117,6 +117,19 @@ class WorksController < ApplicationController
     end
   end
   
+  def save_as_draft
+    @work = Work.find(params[:id])
+    respond_to do |format|
+      if @work.update_attribute(:draft, true)
+        format.html { redirect_to @work, notice: 'Draft was successfully saved.' }
+        format.json { render action: 'show', status: :created, location: @work }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @work.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   # POST /drafts
   # POST /drafts.json
   def create_draft
@@ -141,6 +154,8 @@ class WorksController < ApplicationController
   # PATCH/PUT /works/1
   # PATCH/PUT /works/1.json
   def update
+    @work.update_attribute(:draft, false)
+    
     respond_to do |format|
       if @work.update(work_params)
         format.html { redirect_to @work, notice: 'Work was successfully updated.' }

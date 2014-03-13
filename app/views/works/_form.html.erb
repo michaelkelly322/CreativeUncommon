@@ -31,6 +31,6 @@
   </div>
   <div class="actions centered">
     <%= f.button "Publish", class: "btn btn-larg bttn pull-right" %>
-    <%= f.button "Save", class: "btn btn-larg bttn pull-left", formaction: drafts_path  %>
+    <%= f.button "Save As Draft", class: "btn btn-larg bttn pull-left", formaction: drafts_path + '/' + @work.id.to_s %>
   </div>
 <% end %>
