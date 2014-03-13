@@ -11,20 +11,22 @@
 		</div>
 		
 		<!-- Most popular story -->
-		<div class="content-panel">
-			<div class="list-item-even">
-				<div class="pull-right" style="text-align: right">
-					<div>Reads   <%= @popular.read_count %></div>
-					<div>Downloads   <%= @popular.downloaded %></div>
-					<div>Donated   <%= @popular.donated %></div>
+		<% unless @popular.nil? %>
+			<div class="content-panel">
+				<div class="list-item-even">
+					<div class="pull-right" style="text-align: right">
+						<div>Reads   <%= @popular.read_count %></div>
+						<div>Downloads   <%= @popular.downloaded %></div>
+						<div>Donated   <%= @popular.donated %></div>
+					</div>
+					<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
+						<div class="pull-left"></div>
+						<div><%= @popular.title %></div>
+					</a>
+					<div style="width: 90%;"><%= @popular.blurb %></div>
 				</div>
-				<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
-					<div class="pull-left"></div>
-					<div><%= @popular.title %></div>
-				</a>
-				<div style="width: 90%;"><%= @popular.blurb %></div>
 			</div>
-		</div>
+		<% end %>
 	</div>
 	<div class="cell">
 		<!-- Pen Name -->

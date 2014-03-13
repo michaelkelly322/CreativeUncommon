@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.welcome_email(@user).deliver
+      welcome = UserMailer.welcome_email(@user)
+      welcome.deliver
+      
+      logger.debug welcome.errors.inspect
+      
       sign_in @user
       flash[:notice] = "Welcome to the Creative Uncommon!"
       redirect_to @user
@@ -50,7 +54,18 @@ class UsersController < ApplicationController
       end
     end
     
-    redirect_to @user
+    if user_params[:password].blank?
+      user_params.delete('password')
+      user_params.delete('password_confirmation')
+    end
+    
+    if @user.update_attributes(user_params)
+      redirect_to @user, notice: "Successfully updated your Profile!"
+    else
+      logger.debug @user.errors.messages.inspect
+      render 'edit'
+    end
+    
   end
   
   def edit
@@ -74,6 +89,6 @@ class UsersController < ApplicationController
   private
   
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :bio)
     end
 end

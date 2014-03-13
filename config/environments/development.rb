@@ -26,4 +26,13 @@ TreeHouse::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: true,
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: 'michaelkelly322@gmail.com',
+    password: 'l4m0ur_70urj0ur',
+    authentication: 'plain'
+  }
 end

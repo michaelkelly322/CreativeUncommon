@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 50 }
   
   validates :password, length: { minimum: 8 },
-                       format: { with: VALID_PWD_REGEX }
+                       format: { with: VALID_PWD_REGEX },
+                       if: :validate_password?
                        
   
   # => Callbacks
@@ -39,5 +40,9 @@ class User < ActiveRecord::Base
   private
     def create_session_key
       self.session_key = User.encrypt(User.new_session_key)
+    end
+    
+    def validate_password?
+      password.present? || password_confirmation.present?
     end
 end
