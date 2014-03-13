@@ -10,15 +10,31 @@
 			<%= profile_image @user.id %>
 		</div>
 		
-		<!-- User Bio -->
+		<!-- Most popular story -->
 		<div class="content-panel">
-			<%= @user.bio %>
+			<div class="list-item-even">
+				<div class="pull-right" style="text-align: right">
+					<div>Reads   <%= @popular.read_count %></div>
+					<div>Downloads   <%= @popular.downloaded %></div>
+					<div>Donated   <%= @popular.donated %></div>
+				</div>
+				<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
+					<div class="pull-left"></div>
+					<div><%= @popular.title %></div>
+				</a>
+				<div style="width: 90%;"><%= @popular.blurb %></div>
+			</div>
 		</div>
 	</div>
 	<div class="cell">
 		<!-- Pen Name -->
 		<div class="content-panel">
 			<%= yield :title %>
+		</div>
+		
+		<!-- User Bio -->
+		<div class="content-panel">
+			<%= @user.bio %>
 		</div>
 		
 		<!-- User Since -->
@@ -33,23 +49,6 @@
 			<% else %>
 				<a href="/search/<%= @user.id.to_s %>"><%= image_tag "MyStories.png"%></a>
 			<% end %>
-		</div>
-		
-		<!-- Most popular story -->
-		
-		<div class="content-panel">
-			<div class="list-item-even">
-				<div class="pull-right" style="text-align: right">
-					<div>Reads   <%= @popular.read_count %></div>
-					<div>Downloads   <%= @popular.downloaded %></div>
-					<div>Donated   <%= @popular.donated %></div>
-				</div>
-				<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
-					<div class="pull-left"></div>
-					<div><%= @popular.title %></div>
-				</a>
-				<div style="width: 90%;"><%= @popular.blurb %></div>
-			</div>
 		</div>
 	</div>
 	
