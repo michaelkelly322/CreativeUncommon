@@ -8,7 +8,7 @@
 				<div>Donated   <%= work.donated %></div>
 			</div>
 			<a href="/works/<%= work.id %>" style="height: 100%; width: 100%;">
-				<div class="pull-left"><img style="height: 60px;" src="#" /></div>
+				<div class="pull-left"><%= profile_image_small work.user_id %></div>
 				<div><%= work.title %></div>
 				<div><%= link_to work.author_name, work.user %></div>
 				<div style="width: 90%;"><%= work.blurb %></div>

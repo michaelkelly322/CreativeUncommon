@@ -7,10 +7,16 @@ module UsersHelper
     image_tag(gravatar_url, alt: user.first_name, class: "gravatar")
   end
   
-  # => Emits the tag for a user's profile image
-  # => Is only valid in locations where the user's id
-  # => is gaurenteed as part of the request
-  def profile_image
-    image_tag url_for controller: 'users', action: 'get_user_image', type: 'image/jpeg'
+  def profile_image(user_id)
+    image_tag url_for controller: 'users', action: 'get_user_image', type: 'image/jpeg', id: user_id
   end
+  
+  def profile_image_small(user_id)
+    ('<img src="' + image_url(user_id) + '" style="height: 60px;">').html_safe
+  end
+  
+  def image_url(user_id)
+    url_for controller: 'users', action: 'get_user_image', type: 'image/jpeg', id: user_id
+  end
+      
 end
