@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # => Successful login: signin and redirect to user dashboard
       sign_in user
-      redirect_to user
+      redirect_to root_url
     else
       # => Unsuccessful login: provide error message and re-render new
       flash.now[:error] = 'Invalid username/password combination'

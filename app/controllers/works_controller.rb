@@ -12,6 +12,13 @@ class WorksController < ApplicationController
     conditions = Array.new
     arguments = Hash.new
     
+    if !params[:id].nil?
+      unless params[:id].blank?
+        conditions << 'user_id = :id'
+        arguments[:id] = params[:id]
+      end
+    end
+    
     if !params[:work].nil? && !params[:work][:title].nil?
       unless params[:work][:title].blank?
         conditions << 'title LIKE :title'

@@ -53,7 +53,7 @@
 			</div>
 		<% else %>
 			<div class="content-panel">
-				<a href='<%= logout_path %>' method="delete"><%= image_tag 'Log Out.png' %></a>
+				<%= link_to image_tag('Log Out.png'), logout_path, method: 'delete' %>
 			</div>
 			
 		<% end %>
