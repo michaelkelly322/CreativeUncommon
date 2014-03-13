@@ -55,7 +55,10 @@
 			<div class="content-panel">
 				<%= link_to image_tag('Log Out.png', style: 'height: 280px;'), logout_path, method: 'delete' %>
 			</div>
-			
+			<div class="content-panel">
+				<%= link_to image_tag('MyProfileEdit.png', class: 'half-width pull-left'), edit_user_path(current_user) %>
+				<%= link_to image_tag('MyStoryEdit.png', class: 'half-width pull-right'), stories_path %>
+			</div>
 		<% end %>
 	</div>
 </div>

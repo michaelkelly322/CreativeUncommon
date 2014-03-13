@@ -6,8 +6,10 @@
 		<div class="cell">
 			<!-- Profile photo -->
 			<div class="content-panel">
-				<%= profile_image @user.id %>
-				<%= f.file_field :image %>
+				<%= profile_image @user.id %><br />
+				<div>
+					<%= f.file_field :image, class: 'centered' %>
+				</div>
 			</div>
 			
 			<!-- User Bio -->
@@ -54,7 +56,9 @@
 			</div>
 			
 			<div class="content-panel">
-				<%= f.submit "Save", class: "centered btn btn-large bttn" %>
+				<div class="col-xs-6"><%= f.submit "Save", class: "centered btn btn-large bttn" %></div>
+				<div class="col-xs-1"></div>
+				<div class="col-xs-4"><%= link_to "Cancel", @user, class: "centered btn btn-large bttn",style: "color: #bad2ad; font-family: 'Spinnaker, sans-serif'" %></div>
 			</div>
 		</div>
 	<% end %>
