@@ -37,7 +37,7 @@
 		
 		<% if signed_in? %>
 			<div class="content-panel">
-				<%= image_tag 'ProfileView.png' %>
+				<%= link_to image_tag('ProfileView.png'), current_user %>
 			</div>
 		<% end %>
 		
