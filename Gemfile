@@ -62,6 +62,8 @@ end
 gem 'nokogiri'
 gem 'prawn_rails'
 gem 'delayed_job_active_record'
+gem 'paypal-sdk-buttonmanager'
+gem 'paypal-sdk-adaptivepayments'
 
 group :production do
   gem 'pg', '0.15.1'
