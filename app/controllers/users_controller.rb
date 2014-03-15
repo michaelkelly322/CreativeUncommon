@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @user.send_welcome_email
       
       sign_in @user
-      flash[:notice] = "Welcome to the Creative Uncommon!"
+      flash[:notice] = "Welcome to the Fuinneamh!"
       redirect_to root_path
     else
       flash[:failure] = "Could not create user!"

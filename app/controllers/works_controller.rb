@@ -71,9 +71,10 @@ class WorksController < ApplicationController
     
     
     if @work.draft?
-      if !current_user.nil?
+      unless current_user.nil?
         if current_user.id != @work.user.id
           flash[:failure] = "This story is not currently published."
+          redirect search_path
         end
       end
     end
@@ -111,7 +112,7 @@ class WorksController < ApplicationController
     respond_to do |format|
       if @work.save
         
-        @work..generate_pdf
+        @work.generate_pdf
         
         format.html { redirect_to @work, notice: 'Work was successfully created.' }
         format.json { render action: 'show', status: :created, location: @work }
