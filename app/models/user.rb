@@ -37,11 +37,11 @@ class User < ActiveRecord::Base
   end
   
   def send_welcome_email
-    welcome = UserMailer.welcome_email(self)
-    welcome.deliver
-    
-    unless welcome.errors.empty?
-      logger.warn welcome.errors.inspect
+    begin
+      welcome = UserMailer.welcome_email(self)
+      welcome.deliver
+    rescue
+      logger.error welcome.errors.inspect
     end
   end
   
