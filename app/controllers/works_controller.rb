@@ -65,8 +65,14 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
-    if current_user.nil? || current_user.id != @work.user.id
+    if current_user.nil?
       @work.increment(:read_count)
+    end
+    
+    unless current_user.nil?
+      if current_user.id != @work.user.id
+        @work.increment(:read_count)
+      end
     end
     
     
