@@ -1,11 +1,12 @@
 class WorksController < ApplicationController
   include LengthHelper
   before_action :set_work, only: [:show, :edit, :update, :destroy, :topdf]
+  before_action :set_works, only: [:index]
 
   # GET /works
   # GET /works.json
   def index
-    @works = Work.where(draft: false)
+    
   end
 
   def search
@@ -51,6 +52,9 @@ class WorksController < ApplicationController
     conditions << 'draft = :draft'
     arguments[:draft] = false
     
+    conditions << 'approved = :approved'
+    arguments[:approved] = true
+    
     all_conditions = conditions.join(' AND ')
     
     @works = Work.find(:all, conditions: [all_conditions, arguments])
@@ -90,6 +94,7 @@ class WorksController < ApplicationController
 
   def topdf
     @work.increment(:downloaded)
+    @work.save
   end
 
   # POST /works
@@ -105,6 +110,9 @@ class WorksController < ApplicationController
 
     respond_to do |format|
       if @work.save
+        
+        @work.delay.generate_pdf
+        
         format.html { redirect_to @work, notice: 'Work was successfully created.' }
         format.json { render action: 'show', status: :created, location: @work }
       else
@@ -139,7 +147,7 @@ class WorksController < ApplicationController
 
     respond_to do |format|
       if @work.save
-        format.html { redirect_to @work, notice: 'Draft was successfully saved.' }
+        format.html { redirect_to @work.user, notice: 'Draft was successfully saved. Awaiting approval.' }
         format.json { render action: 'show', status: :created, location: @work }
       else
         format.html { render action: 'new' }
@@ -155,7 +163,7 @@ class WorksController < ApplicationController
     
     respond_to do |format|
       if @work.update(work_params)
-        format.html { redirect_to @work, notice: 'Work was successfully updated.' }
+        format.html { redirect_to @work.user, notice: 'Work was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -178,6 +186,14 @@ class WorksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_work
       @work = Work.find(params[:id])
+    end
+
+    def set_works
+      @works = published_works
+    end
+
+    def set_unapproved_works
+      @works = Work.where(approved: false)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

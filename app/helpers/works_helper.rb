@@ -1,5 +1,15 @@
 module WorksHelper
   def donated_s(in_id)
-    Donation.where(work_id: in_id, approved: true).sum(:amount).to_s
+    don = Donation.where(work_id: in_id, approved: true)
+
+    unless don.empty?
+      don.sum(:amount)
+    else
+      ''
+    end
+  end
+  
+  def published_works
+    Work.where(approved: true, draft: false)
   end
 end

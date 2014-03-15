@@ -60,8 +60,8 @@
 		<div class="content-panel">
 			<div>Stories Published: <%= @user.works.length %></div>
 			<div>Total Reads: <%= @user.works.sum(:read_count) %></div>
-			<div>Amount Donated: </div>
-			<div>Amount Recieved: <%= Donation.where(user_id: @user.id, approved: true)%></div>
+			<div>Amount Donated: <%= donated @user.id %></div>
+			<div>Amount Recieved: <%= recieved @user.id %></div>
 		</div>
 		
 		<!-- Donate -->

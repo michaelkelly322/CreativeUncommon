@@ -36,6 +36,15 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(key.to_s)
   end
   
+  def send_welcome_email
+    welcome = UserMailer.welcome_email(self)
+    welcome.deliver
+    
+    unless welcome.errors.empty?
+      logger.warn welcome.errors.inspect
+    end
+  end
+  
   # => Private methods
   private
     def create_session_key

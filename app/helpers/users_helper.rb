@@ -1,5 +1,25 @@
 module UsersHelper
   
+  def recieved(in_id)
+    don = Donation.where(user_id: in_id, approved: true)
+    
+    unless don.empty?
+      don.sum(:amount).to_s
+    else
+      ''
+    end
+  end
+  
+  def donated(in_id)
+    user = User.find(in_id)
+    
+    unless user.nil?
+      user.donated.to_s
+    else
+      0.0
+    end
+  end
+  
   # => Emits the tag for a user's gravatar
   def gravatar_for(user)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)

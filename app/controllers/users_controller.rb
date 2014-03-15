@@ -6,14 +6,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      welcome = UserMailer.welcome_email(@user)
-      welcome.deliver
       
-      logger.debug welcome.errors.inspect
+      @user.delay.send_welcome_email
       
       sign_in @user
       flash[:notice] = "Welcome to the Creative Uncommon!"
-      redirect_to @user
+      redirect_to root_path
     else
       flash[:failure] = "Could not create user!"
       render 'new'

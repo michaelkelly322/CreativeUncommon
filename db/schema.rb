@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314195016) do
+ActiveRecord::Schema.define(version: 20140315064414) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140314195016) do
     t.string   "username"
     t.string   "session_key"
     t.binary   "image"
+    t.decimal  "donated",            default: 0.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -75,8 +76,11 @@ ActiveRecord::Schema.define(version: 20140314195016) do
     t.integer  "word_count"
     t.integer  "downloaded"
     t.decimal  "donated"
+    t.binary   "pdf"
+    t.boolean  "approved",    default: false
   end
 
+  add_index "works", ["approved"], name: "index_works_on_approved"
   add_index "works", ["created_at"], name: "index_works_on_created_at"
   add_index "works", ["read_count"], name: "index_works_on_read_count"
   add_index "works", ["user_id"], name: "index_works_on_user_id"

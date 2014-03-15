@@ -16,7 +16,7 @@ class SiteController < ApplicationController
   end
   
   def stats
-    @donated = 0.0;
+    @donated = Donation.all.sum(:amount).to_s;
     @total_works = Work.count(:id)
     @total_words = Work.sum(:word_count)
   end

@@ -1,8 +1,17 @@
 <% provide(:title, 'Stats')%>
 <%= page_title_tag "StatsGraphx.png"%>
 
-<div class="content-panel">
-	<div><%= @donated %></div>
-	<div><%= @total_works %></div>
-	<div><%= @total_words %></div>
+<div class="content-panel floating-grid3">
+	<div class="cell" style="text-align: center; font-size: 25px;">
+		<div>Total Donated</div>
+		<div class="content-panel"><%= @donated %></div>
+	</div>
+	<div class="cell" style="text-align: center; font-size: 25px;">
+		<div>Stories Published</div>
+		<div class="content-panel"><%= @total_works %></div>
+	</div>
+	<div class="cell" style="text-align: center; font-size: 25px;">
+		<div>Words Published</div>
+		<div class="content-panel"><%= @total_words %></div>
+	</div>
 </div>
