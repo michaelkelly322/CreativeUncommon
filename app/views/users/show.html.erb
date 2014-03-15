@@ -17,7 +17,7 @@
 					<div class="pull-right" style="text-align: right">
 						<div>Reads   <%= @popular.read_count %></div>
 						<div>Downloads   <%= @popular.downloaded %></div>
-						<div>Donated   <%= @popular.donated %></div>
+						<div>Donated   <%= donated_s @popular.id %></div>
 					</div>
 					<a href="/works/<%= @popular.id %>" style="height: 100%; width: 100%;">
 						<div class="pull-left"></div>
@@ -61,12 +61,14 @@
 			<div>Stories Published: <%= @user.works.length %></div>
 			<div>Total Reads: <%= @user.works.sum(:read_count) %></div>
 			<div>Amount Donated: </div>
-			<div>Amount Recieved: </div>
+			<div>Amount Recieved: <%= Donation.where(user_id: @user.id, approved: true)%></div>
 		</div>
 		
 		<!-- Donate -->
 		<div class="content-panel">
-			<a href="#"><%= image_tag "Donate.png"%></a>
+			<% unless @popular.nil? %>
+				<a href="/donate/<%= @popular.id %>"><%= image_tag "Donate.png"%></a>
+			<% end %>
 		</div>
 	</div>
 	

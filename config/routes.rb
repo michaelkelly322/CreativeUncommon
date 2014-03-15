@@ -1,4 +1,6 @@
 TreeHouse::Application.routes.draw do
+  resources :donations
+
   resources :works
 
   resources :users
@@ -28,6 +30,12 @@ TreeHouse::Application.routes.draw do
   # => Post routes
     match '/drafts',  to: 'works#create_draft',via: 'post'
     match '/drafts/:id',  to: 'works#save_as_draft',via: 'patch'
+    
+  # => Donation Routes
+    match '/donate/:type', to: 'donations#new', via: 'get'
+    match '/donations/cancel/:id', to: 'donations#cancel', via: 'get'
+    match '/donations/approve/:id', to: 'donations#approve', via: 'get'
+    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

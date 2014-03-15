@@ -89,11 +89,7 @@ class WorksController < ApplicationController
   end
 
   def topdf
-#    respond_to do |format|
- #     format.pdf do
-  #      render :pdf => 'topdf'
-   #   end
-    #end
+    @work.increment(:downloaded)
   end
 
   # POST /works
@@ -101,6 +97,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     @work.draft = false
+    @work.downloaded = 0
     
     if signed_in?
       @work.user = current_user

@@ -5,7 +5,7 @@
 			<div class="pull-right" style="text-align: right">
 				<div>Reads   <%= work.read_count %></div>
 				<div>Downloads   <%= work.downloaded %></div>
-				<div>Donated   <%= work.donated %></div>
+				<div>Donated   <%= donated_s work.id %></div>
 			</div>
 			<a href="/works/<%= work.id %>/edit" style="height: 100%; width: 100%;">
 				<div><%= work.title %> <% if work.draft %>(Draft)<% end %> </div>
