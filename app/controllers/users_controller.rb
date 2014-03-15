@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       
-      @user.delay.send_welcome_email
+      @user.send_welcome_email
       
       sign_in @user
       flash[:notice] = "Welcome to the Creative Uncommon!"

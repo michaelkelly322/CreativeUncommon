@@ -111,7 +111,7 @@ class WorksController < ApplicationController
     respond_to do |format|
       if @work.save
         
-        @work.delay.generate_pdf
+        @work..generate_pdf
         
         format.html { redirect_to @work, notice: 'Work was successfully created.' }
         format.json { render action: 'show', status: :created, location: @work }
