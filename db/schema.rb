@@ -39,10 +39,26 @@ ActiveRecord::Schema.define(version: 20140314195016) do
     t.integer  "work_id"
   end
 
-  add_index "donations", ["user_id", "work_id"], name: "index_donations_on_user_id_and_work_id"
+  add_index "donations", ["user_id"], name: "index_donations_on_user_id"
+  add_index "donations", ["work_id"], name: "index_donations_on_work_id"
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "bio"
+    t.string   "email_confirmation"
+    t.string   "username"
+    t.string   "session_key"
+    t.binary   "image"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["session_key"], name: "index_users_on_session_key"
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
   create_table "works", force: true do |t|
     t.string   "blurb"
