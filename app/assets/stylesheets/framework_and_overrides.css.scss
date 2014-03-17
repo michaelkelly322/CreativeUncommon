@@ -120,8 +120,9 @@ main {
 #alert-box {
   position: fixed;
   top: 90px;
+  right: 0%;
   z-index: 999;
-  opacity: .75;
+  opacity: .90;
 }
 section {
   @extend .row;

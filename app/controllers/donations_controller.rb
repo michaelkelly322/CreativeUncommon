@@ -69,7 +69,9 @@ class DonationsController < ApplicationController
         # Make API call & get response
         @response = @api.pay(@pay)
         if @response.success?
-          format.html { redirect_to @api.payment_url(@response)}
+          @url = @api.payment_url(@response)
+          
+          format.html { render 'donation_forward' }
         else
           format.html { render action: 'new', notice: 'Error communicating with Paypal' }
         end
