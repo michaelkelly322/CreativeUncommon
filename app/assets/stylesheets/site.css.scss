@@ -57,7 +57,7 @@
 .fixed-donate {
   width: 150px;
   height: 110px;
-  position: absolute;
+  position: fixed;
 }
 
 #badges-left {
@@ -76,4 +76,10 @@
 
 .half-width {
   width: 50%;
+}
+
+.social-button {
+  .img {
+    margin-left: 0px;
+  }
 }

@@ -9,7 +9,9 @@
 		<%= @work.blurb %>
 	</div>
 	<div class="content-panel">
-		Social
+		
+		<%= render 'social_panel' %>
+		
 		<% unless @work.pdf.nil? %>
 			<div><a href="/download/<%= @work.id %>">Download</a></div>
 		<% else %>
@@ -21,7 +23,7 @@
 <div class="col-lg-8 reading-panel">
 	<div class="content-panel">
 		<div class="reading-pane">
-			<%= @work.body %>
+			<%= simple_format @work.body %>
 		</div>
 	</div>
 </div>
