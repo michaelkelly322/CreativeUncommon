@@ -8,7 +8,7 @@
 				<div>Donated   <%= donated_s work.id %></div>
 			</div>
 			<a href="/works/<%= work.id %>/edit" style="height: 100%; width: 100%;">
-				<div><%= work.title %> <% if work.draft %>(Draft)<% end %> </div>
+				<div><%= work.title %> <% if work.draft %>(Draft)<% end %>  | <%= link_to "Delete", work, method: 'delete' %></div>
 				<div><%= link_to work.author_name, work.user %></div>
 				<div style="width: 90%;"><%= work.blurb %></div>
 			</a>
