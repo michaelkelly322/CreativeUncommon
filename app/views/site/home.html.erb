@@ -1,65 +1,84 @@
 <% provide(:title, "Home")%>
 
+<style>
+	.text {
+	    position: absolute;
+	    top: 15px;
+	    left: 15px;
+	    right: 15px;
+		bottom: 15px;
+		
+	    color: #222222;
+	    background-color:rgba(186, 210, 173,0.8);
+	    
+	    text-align: center;
+	    z-index: 10;
+	    opacity: 0;
+	    -webkit-transition: all 0.5s ease;
+	    -moz-transition: all 0.5s ease;
+	    -o-transition: all 0.5s ease;
+	    transition: all 0.5s ease;
+	    
+	    font-size: xx-large;
+	    
+	    /* Internet Explorer 10 */
+		display:-ms-flexbox;
+		-ms-flex-pack:center;
+		-ms-flex-align:center;
+		
+		/* Firefox */
+		display:-moz-box;
+		-moz-box-pack:center;
+		-moz-box-align:center;
+		
+		/* Safari, Chrome, and Opera */
+		display:-webkit-box;
+		-webkit-box-pack:center;
+		-webkit-box-align:center;
+		
+		/* W3C */
+		display:box;
+		box-pack:center;
+		box-align:center;
+	}
+	
+	.text:hover {
+    	opacity:1;
+	}
+</style>
 
 <div class="floating-grid3">
 	<div class="cell">
 		<div class="content-panel">
-			<a href="/faq"><%= image_tag 'FAQ Newb Guide.png' %></a>
+			<a href="/faq"><div class="text">FAQ</div><%= image_tag 'FAQ Newb Guide.png' %></a>
 		</div>
 		
 		<div class="content-panel">
-			<a href="/search"><%= image_tag "BrowseStories.png" %></a>
+			<div class="text">FAQ</div><%= image_tag "ProfileView.png" %>
 		</div>
-		
-		<% if signed_in? %>
-			<div class="content-panel">
-				<a href="/works/new"><%= image_tag 'PostStory.png', height: '170', width: '220' %></a>
-			</div>
-		<% end %>
-		
 	</div>
+	
 	<div class="cell">
 		<div class="content-panel">
-			<a href="/donate/0"><%= image_tag 'Donate.png' %></a>
+			<div class="text">FAQ</div><%= image_tag "ToolsandLinks.png" %>
 		</div>
 		
 		<div class="content-panel">
-			<%= image_tag "ToolsandLinks.png" %>
+			<a href="/stories"><div class="text">Published Works</div><%= image_tag "Corruption Logo.png", style: 'height: 201px;' %></a>
 		</div>
 		
-		<% if !signed_in? %>
-			<div class="content-panel">
-				<a href="/signup"><%= image_tag "JoinNow.png" %></a>
-			</div>
-		<% else %>
-
-		<% end %>
-		
-		<% if signed_in? %>
-			<div class="content-panel">
-				<%= link_to image_tag('ProfileView.png'), current_user %>
-			</div>
-		<% end %>
-		
+		<div class="content-panel">
+			<div class="text">FAQ</div><%= image_tag "What'sNew.png" %>
+		</div>
 	</div>
+	
 	<div class="cell">
 		<div class="content-panel">
-			<a href="<%= stats_path %>"><%= image_tag "Stats.png", style: 'height: 250px;' %></a>
+			<a href="/works/new"><div class="text">FAQ</div><%= image_tag 'Followers.png' %></a>
 		</div>
-		
-		<% if !signed_in? %>
-			<div class="content-panel">
-				<a href="/signin"><%= image_tag "LogIn.png", style: 'height: 280px;' %></a>
-			</div>
-		<% else %>
-			<div class="content-panel">
-				<%= link_to image_tag('Log Out.png', style: 'height: 280px;'), logout_path, method: 'delete' %>
-			</div>
-			<div class="content-panel">
-				<%= link_to image_tag('MyProfileEdit.png', style: 'position: relative; left: 9%;', class: 'half-width pull-left'), edit_user_path(current_user) %>
-				<%= link_to image_tag('MyStoryEdit.png', style: 'position: relative; right: 9%; top: 5px;', class: 'half-width pull-right'), stories_path %>
-			</div>
-		<% end %>
+		<div class="content-panel">
+			<div class="text">FAQ</div><%= image_tag "PostStory.png", style: 'height: 260px;' %>
+		</div>
 	</div>
 </div>
 

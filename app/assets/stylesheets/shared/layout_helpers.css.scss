@@ -39,7 +39,7 @@
 
 @mixin bm-make-content-panel($rel-width, $back-color) {
   width: $rel-width;
-  
+  position: relative;
   background-color: $back-color;
   
   float: none;

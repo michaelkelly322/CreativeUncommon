@@ -25,7 +25,7 @@ group :test do
   gem 'capybara', '2.1.0'
   
   gem 'rb-notifu'
-  gem 'win32console'
+  #gem 'win32console'
   gem 'wdm'
   
   gem 'factory_girl_rails'

@@ -22,7 +22,7 @@ TreeHouse::Application.routes.draw do
     match '/faq',     to: 'site#faq',         via: 'get'
     match '/search',  to: 'works#search',      via:  'get'
     match '/search/:id',  to: 'works#search',      via:  'get'
-    match '/stories', to: 'users#stories',    via: 'get'
+    match '/stories', to: 'site#stories',    via: 'get'
     match '/stats', to: 'site#stats',        via: 'get'
     
     match '/download/:id', to: 'works#topdf',   via: 'get', defaults: { format: 'pdf'}

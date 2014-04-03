@@ -15,6 +15,10 @@ class SiteController < ApplicationController
     
   end
   
+  def stories
+    
+  end
+  
   def stats
     @donated = Donation.all.sum(:amount).to_s;
     @total_works = Work.count(:id)
