@@ -32,12 +32,13 @@ module SiteHelper
     content = Hash.new
     
     Dir.glob(image_path.join('*')) do |file|
+      pipeline_path = file.split('images/').last
       file_name = file.split('/').last
       
       image_name_raw = file_name.split('.').first
       image_name = image_name_raw.split.map(&:capitalize).join(' ')
       
-      content[image_name] = file
+      content[image_name] = pipeline_path
     end
     
     return content
@@ -48,6 +49,7 @@ module SiteHelper
     content = Hash.new
     
     Dir.glob(photo_path.join('*_cover.JPG')) do |file|
+      pipeline_path = file.split('images/').last
       file_name = file.split('/').last
       
       photo_name_raw = file_name.split('.').first
@@ -56,7 +58,7 @@ module SiteHelper
       photo_name = photo_name_raw.split.map(&:capitalize).join(' ')
       
       
-      content[photo_name] = file
+      content[photo_name] = pipeline_path
     end
     
     return content
@@ -67,6 +69,7 @@ module SiteHelper
     content = Hash.new
     
     Dir.glob(photo_path.join('*.JPG')) do |file|
+      pipeline_path = file.split('images/').last
       file_name = file.split('/').last
       
       photo_name_raw = file_name.split('.').first
@@ -75,7 +78,7 @@ module SiteHelper
       photo_name = photo_name_raw.split.map(&:capitalize).join(' ')
       
       
-      content[photo_name] = file
+      content[photo_name] = pipeline_path
     end
     
     return content
