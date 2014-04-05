@@ -11,6 +11,14 @@
    @include bm-make-grid(3);
  }
  
+ .floating-grid6 {
+   @include bm-make-grid(6);
+ }
+ 
+ .floating-grid4 {
+   @include bm-make-grid(4);
+ }
+ 
  .floating-grid2 {
   @include bm-make-grid(2);
  }
@@ -83,3 +91,48 @@
     margin-left: 0px;
   }
 }
+
+.text {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+    bottom: 15px;
+    
+      color: #222222;
+      background-color:rgba(186, 210, 173,0.8);
+      
+      text-align: center;
+      z-index: 10;
+      opacity: 0;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      
+      font-size: xx-large;
+      
+      /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+    
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+    
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+  }
+  
+  .text:hover {
+      opacity:1;
+  }

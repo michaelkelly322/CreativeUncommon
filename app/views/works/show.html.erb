@@ -5,32 +5,35 @@
 </div>
 
 <div class="col-lg-2 reading-panel">
-	<div class="content-panel">
-		<%= @work.blurb %>
-	</div>
+	<% unless @work.blurb.nil? %>
+		<div class="content-panel">
+			<%= @work.blurb %>
+		</div>
+	<% end %>
 	<div class="content-panel">
 		
-		<%= render 'social_panel' %>
+		<%= render 'works/social_panel' %>
 		
 		<% unless @work.pdf.nil? %>
 			<div><a href="/download/<%= @work.id %>">Download</a></div>
 		<% else %>
-			<div>Converting PDF...</div>
+			
 		<% end %>
 	</div>
 </div>
 
-<div class="col-lg-8 reading-panel">
+<div class="col-lg-10 reading-panel">
 	<div class="content-panel">
-		<div class="reading-pane">
-			<%= simple_format @work.body %>
+		<div class="reading-pane" style="">
+			<% unless @is_poem %>
+				<%= simple_format @work.body %>
+			<% else %>
+				<div class='centered' style="width: 40%"><pre style="border: none; white-space: word-wrap"><p style='line-height: initial;'><%= @work.body %></p></pre></div>
+			<% end %>
+			
 		</div>
 	</div>
 </div>
 
-<div class="col-lg-2 reading-panel">
-	<div class="content-panel fixed-donate">
-		<a href="/donate/<%= @work.id %>"><%= image_tag "Donate.png" %></a>
-	</div>
-</div>
+
 

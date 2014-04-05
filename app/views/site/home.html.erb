@@ -1,83 +1,36 @@
 <% provide(:title, "Home")%>
 
-<style>
-	.text {
-	    position: absolute;
-	    top: 15px;
-	    left: 15px;
-	    right: 15px;
-		bottom: 15px;
-		
-	    color: #222222;
-	    background-color:rgba(186, 210, 173,0.8);
-	    
-	    text-align: center;
-	    z-index: 10;
-	    opacity: 0;
-	    -webkit-transition: all 0.5s ease;
-	    -moz-transition: all 0.5s ease;
-	    -o-transition: all 0.5s ease;
-	    transition: all 0.5s ease;
-	    
-	    font-size: xx-large;
-	    
-	    /* Internet Explorer 10 */
-		display:-ms-flexbox;
-		-ms-flex-pack:center;
-		-ms-flex-align:center;
-		
-		/* Firefox */
-		display:-moz-box;
-		-moz-box-pack:center;
-		-moz-box-align:center;
-		
-		/* Safari, Chrome, and Opera */
-		display:-webkit-box;
-		-webkit-box-pack:center;
-		-webkit-box-align:center;
-		
-		/* W3C */
-		display:box;
-		box-pack:center;
-		box-align:center;
-	}
-	
-	.text:hover {
-    	opacity:1;
-	}
-</style>
-
 <div class="floating-grid3">
 	<div class="cell">
 		<div class="content-panel">
-			<a href="/faq"><div class="text">FAQ</div><%= image_tag 'FAQ Newb Guide.png' %></a>
+			<a href="/poetry"><div class="text">Poetry</div><%= image_tag 'FAQ Newb Guide.png' %></a>
 		</div>
 		
 		<div class="content-panel">
-			<div class="text">FAQ</div><%= image_tag "ProfileView.png" %>
+			<a href="/shortstories"><div class="text">Short Stories</div><%= image_tag "ProfileView.png" %></a>
 		</div>
 	</div>
 	
 	<div class="cell">
 		<div class="content-panel">
-			<div class="text">FAQ</div><%= image_tag "ToolsandLinks.png" %>
+			<a href="/parastories"><div class="text">Paragraph Stories</div><%= image_tag "ToolsandLinks.png" %></a>
 		</div>
 		
 		<div class="content-panel">
-			<a href="/stories"><div class="text">Published Works</div><%= image_tag "Corruption Logo.png", style: 'height: 201px;' %></a>
+			<a href="/published"><div class="text">Published Works</div><%= image_tag "Corruption Logo.png", style: 'height: 201px;' %></a>
 		</div>
 		
-		<div class="content-panel">
-			<div class="text">FAQ</div><%= image_tag "What'sNew.png" %>
-		</div>
+		<!--<div class="content-panel">
+			<a href="/drawing"><div class="text">Drawing</div><%= image_tag "What'sNew.png" %></a>
+		</div>-->
 	</div>
 	
 	<div class="cell">
 		<div class="content-panel">
-			<a href="/works/new"><div class="text">FAQ</div><%= image_tag 'Followers.png' %></a>
+			<a href="/painting"><div class="text">Painting</div><%= image_tag "What'sNew.png" %></a>
 		</div>
 		<div class="content-panel">
-			<div class="text">FAQ</div><%= image_tag "PostStory.png", style: 'height: 260px;' %>
+			<a href="/photography"><div class="text">Photography</div><%= image_tag "PostStory.png", style: 'height: 260px;' %></a>
 		</div>
 	</div>
 </div>

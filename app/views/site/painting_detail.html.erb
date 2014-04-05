@@ -1,0 +1,21 @@
+<% provide(:title, @work[:title]) %>
+
+<% unless @is_photo %>
+	<div  class="content-panel" style="margin-bottom: 15px;">
+		<div id="dynamic-title" class="centered" style="background: url('/assets/BlankGraphx.png') center no-repeat; background-size: 100% 100%; text-align: center;">
+			<strong style="font-size: 30px; font-weight: bold; color: #b9d1ac;"><%= @work[:title] %></strong>
+		</div>
+	</div>
+<% end %>
+
+<div class="col-lg-2 reading-panel">
+	<div class="content-panel">
+		<%= render 'works/social_panel' %>
+	</div>
+</div>
+
+<div class="col-lg-10 reading-panel">
+	<div class="content-panel">
+		<%= image_tag @work[:file_name], class: 'painting' %>
+	</div>
+</div>
