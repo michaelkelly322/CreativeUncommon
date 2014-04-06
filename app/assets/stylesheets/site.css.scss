@@ -1,3 +1,138 @@
 // Place all the styles related to the Site controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/ 
+@import "shared/layout_helpers";
+
+.main-row {
+  max-width: 1170px;
+}
+
+ .floating-grid3 {
+   @include bm-make-grid(3);
+ }
+ 
+ .floating-grid6 {
+   @include bm-make-grid(6);
+ }
+ 
+ .floating-grid4 {
+   @include bm-make-grid(4);
+ }
+ 
+ .floating-grid2 {
+  @include bm-make-grid(2);
+ }
+ 
+ .mini-grid2 {
+  @include bm-make-grid-d(1,2,2,3);
+ }
+
+.content-panel {
+  @include bm-make-content-panel(100%, #a79196);
+  
+  box-shadow: 0px 0px 5px $color-pri;
+  
+  padding: 15px;
+  
+  overflow: auto;
+}
+
+.content-pane {
+  @include bm-make-content-panel(100%, transparent);
+  
+}
+
+.data-list {
+  //background-color: rgb(34,34,34) !Important;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  
+  margin-top: 15px;
+  
+  .list-item-even {
+    background-color: #a79fa1;
+    margin-bottom: 5px;
+  }
+  
+  .list-item-odd {
+    background-color: #bfbfbf;
+    margin-bottom: 5px;
+  }
+}
+
+.fixed-donate {
+  width: 150px;
+  height: 110px;
+  position: fixed;
+}
+
+#badges-left {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  bottom: 75px;
+  
+  height:65px;
+}
+
+.reading-panel {
+  padding-right: 0px !Important;
+  padding-left: 0px !Important;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.social-button {
+  .img {
+    margin-left: 0px;
+  }
+}
+
+.text {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+    bottom: 15px;
+    
+      color: #222222;
+      background-color:rgba(186, 210, 173,0.8);
+      
+      text-align: center;
+      z-index: 10;
+      opacity: 0;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      
+      font-size: xx-large;
+      
+      /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+    
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+    
+    /* Safari, Chrome, and Opera */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+  }
+  
+  .text:hover {
+      opacity:1;
+  }

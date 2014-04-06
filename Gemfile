@@ -1,17 +1,40 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 
-# Use sqlite3 as the database for Active Record
-group :development do
+# Use sqlite3 for the database for Active Record
+group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'guard-bundler'
+  gem 'guard-shell'
+  gem 'childprocess'
+end
+
+group :development do
+  gem 'rails_layout'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara', '2.1.0'
+  
+  gem 'rb-notifu'
+  #gem 'win32console'
+  gem 'wdm'
+  
+  gem 'factory_girl_rails'
 end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-
-gem 'newrelic_rpm'
+gem 'bcrypt-ruby'
+gem 'bootstrap-sass'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -36,10 +59,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'nokogiri'
+gem 'prawn_rails'
+gem 'delayed_job_active_record'
+gem 'paypal-sdk-buttonmanager'
+gem 'paypal-sdk-adaptivepayments'
 
 group :production do
   gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
+  gem 'rails_serve_static_assets'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

@@ -1,0 +1,51 @@
+<% provide(:title, 'Search for Stories')%>
+<%= page_title_tag "SearchGraphx.png" %>
+<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 centered content-panel">
+	<%= form_tag search_path, id: 'story-search', method: :get do%>	
+		<div class="floating-grid2">
+			<div class="cell">
+				<label>Genre</label>
+			</div>
+			
+			<div class="cell">
+				<%= genre_select_tag 'work[genre]' %>
+			</div>
+		</div>
+		
+		<div class="floating-grid2">
+			<div class="cell">
+				<label>Length</label>
+			</div>
+			
+			<div class="cell">
+				<%= length_select_tag 'work[length]' %>
+			</div>
+		</div>
+			
+		<div class="floating-grid2">
+			<div class="cell">
+				<label>Author</label>
+			</div>
+			
+			<div class="cell">
+				<%= search_field_tag "work[author]", params.has_key?("work") && params[:work].has_key?("author") ? params[:work][:author] : "" %>
+			</div>
+		</div>
+		
+		<div class="floating-grid2">
+			<div class="cell">
+				<label>Title</label>
+			</div>
+			
+			<div class="cell">
+				<%= search_field_tag "work[title]", params.has_key?("work") && params[:work].has_key?("title") ? params[:work][:title] : "" %>
+			</div>
+		</div>
+		
+		<div class="centered">
+			<br /><%= submit_tag "Search", class: 'btn btn-large bttn centered' %>
+		</div>
+	<% end %>
+</div>	
+
+<%= render 'works/works_list' %>

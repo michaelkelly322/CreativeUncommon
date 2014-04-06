@@ -1,0 +1,25 @@
+# Story length definitions
+paragraphstory:
+  display: Paragraph Story
+  min: 100
+  max: 249
+  
+flashfiction:
+  display: Flash Fiction
+  min: 250
+  max: 1499
+  
+shortstory:
+  display: Short Story
+  min: 1500
+  max: 29999
+  
+novella:
+  display: Novella
+  min: 30000
+  max: 49999
+  
+novel:
+  display: Novel
+  min: 50000
+  max: 200000000

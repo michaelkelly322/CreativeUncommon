@@ -1,0 +1,47 @@
+@import "framework_and_overrides";
+
+@mixin bm-make-grid-cell($max-across) {
+    @include make-xs-column(12);
+    @include make-sm-column(12);
+    @include make-md-column(12 / $max-across);
+    @include make-lg-column(12 / $max-across);
+}
+
+@mixin bm-make-grid-cell-d($xs-across, $sm-across, $md-across, $lg-across) {
+    @include make-xs-column(12 / $xs-across);
+    @include make-sm-column(12 / $sm-across);
+    @include make-md-column(12 / $md-across);
+    @include make-lg-column(12 / $lg-across);
+}
+
+@mixin bm-make-grid-d($xs-across, $sm-across, $md-across, $lg-across) {
+    @include make-row();
+    
+    margin-left: 0px;
+    margin-right: 0px;
+    
+    .cell {
+    @include bm-make-grid-cell-d($xs-across, $sm-across, $md-across, $lg-across);
+    
+    padding: 0px;
+  }
+}
+
+@mixin bm-make-grid($max-across) {
+  @include make-row();
+  
+  .cell {
+    @include bm-make-grid-cell($max-across);
+    
+    padding: 0px;
+  }
+}
+
+@mixin bm-make-content-panel($rel-width, $back-color) {
+  width: $rel-width;
+  position: relative;
+  background-color: $back-color;
+  
+  float: none;
+  margin: 0 auto;
+}

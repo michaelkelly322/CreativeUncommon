@@ -1,0 +1,40 @@
+<% provide(:title, 'Photography') %>
+
+<div class="floating-grid3">
+	<div class="cell">
+		<% unless @first_keys.nil? %>
+			<% @first_keys.each do |key| %>
+				<div class="content-panel">
+					<div style="font-size: smaller;">
+						<% logger.debug @covers[key] %>
+						<a href="/photography/<%= key %>"><div class="text"><%= key %></div></a><%= image_tag @covers[key], class: 'img-thumb' %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class="cell">
+		<% unless @mid_keys.nil? %>
+			<% @mid_keys.each do |key| %>
+				<div class="content-panel">
+					<div style="font-size: smaller;">
+						<a href="/photography/<%= key %>"><div class="text"><%= key %></div></a><%= image_tag @covers[key], class: 'img-thumb' %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div class="cell">
+		<% unless @last_keys.nil? %>
+			<% @last_keys.each do |key| %>
+				<div class="content-panel">
+					<div style="font-size: smaller;">
+						<a href="/photography/<%= key %>"><div class="text"><%= key %></div></a><%= image_tag @covers[key], class: 'img-thumb' %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

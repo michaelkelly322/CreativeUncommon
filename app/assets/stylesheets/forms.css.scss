@@ -1,0 +1,60 @@
+@import "framework_and_overrides";
+
+.actions {
+  width:50%;
+}
+
+.form-label {
+  float: left;
+  margin-left: 15px;
+  
+  :before, :after {
+    clear: both;
+  }
+}
+
+.form-input {
+  float: right;
+  
+  margin-right: 15px;
+  
+  :before, :after {
+    clear: both;
+  }
+}
+
+.form-row {
+  @include make-row();
+  
+  margin-bottom: 3px;
+  
+  textarea.small {
+    width: 200px;
+  }
+  
+  input {
+    width: 200px;
+  }
+}
+
+.field_with_errors {
+  padding: 0px !Important;
+  background-color: transparent !Important;
+  display: inline !Important;
+  label {
+    color: rgb(127,0,0);
+  }
+  
+  input {
+    background-color: rgb(255, 165, 165);
+  }
+  
+  textarea {
+    background-color: rgb(255, 0, 0);
+  }
+}
+
+.bttn {
+  background-color: #162e0f;
+  color: #bad2ad;
+}

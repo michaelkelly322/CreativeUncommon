@@ -1,0 +1,65 @@
+<% provide(:title, @user.first_name + ' ' + @user.last_name)%>
+<%= page_title_tag "myprofileeditgraphx.png"%>
+
+<%= form_for(@user) do |f| %>
+	<div class="floating-grid3">
+		<div class="cell">
+			<!-- Profile photo -->
+			<div class="content-panel">
+				<%= profile_image @user.id %><br />
+				<div>
+					<%= f.file_field :image, class: 'centered' %>
+				</div>
+			</div>
+			
+			<!-- User Bio -->
+			<div class="content-panel">
+				<%= f.text_area :bio, style: 'width: 100%;'%>
+			</div>
+		</div>
+		<div class="cell">
+			<!-- Pen Name -->
+			<div class="content-panel">
+				<div class="form-row"><%= f.label :first_name, 'First Name', class: 'form-label' %><%= f.text_field :first_name, class: 'form-input'%></div>
+				<div class="form-row"><%= f.label :last_name, 'Last Name', class: 'form-label' %><%= f.text_field :last_name, class: 'form-input'%></div>
+				<div class="form-row"><%= f.label :email, 'Email', class: 'form-label' %><%= f.text_field :email, class: 'form-input'%></div>
+			</div>
+			
+			<!-- User Since -->
+			<div class="content-panel">
+				User Since <%= @user.created_at.year %>
+			</div>
+			
+			<!-- Stories -->
+			<div class="content-panel">
+				<% if signed_in? %>
+					<a href="<%= stories_path %>"><%= image_tag "MyStories.png" %></a>
+				<% else %>
+					<a href="/search?author=<%= @user.id %>"><%= image_tag "PostStory.png"%></a>
+				<% end %>
+			</div>
+		</div>
+		
+		
+		<div class="cell">
+			<!-- User stats -->
+			<div class="content-panel">
+				<div>Stories Published: <%= @user.works.length %></div>
+				<div>Total Reads: <%= @user.works.sum(:read_count) %></div>
+				<div>Amount Donated: </div>
+				<div>Amount Recieved: </div>
+			</div>
+			
+			<!-- Donate -->
+			<div class="content-panel">
+				<a href="#"><%= image_tag "Donate.png"%></a>
+			</div>
+			
+			<div class="content-panel">
+				<div class="col-xs-6"><%= f.submit "Save", class: "centered btn btn-large bttn" %></div>
+				<div class="col-xs-1"></div>
+				<div class="col-xs-4"><%= link_to "Cancel", @user, class: "centered btn btn-large bttn",style: "color: #bad2ad; font-family: 'Spinnaker, sans-serif'" %></div>
+			</div>
+		</div>
+	<% end %>
+</div>

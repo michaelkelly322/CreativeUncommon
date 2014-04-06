@@ -1,0 +1,145 @@
+// import the CSS framework
+@import "bootstrap";
+@import "colors.css.scss";
+
+.pull-left, .pull-right {
+  :before {
+    clear: both;
+  }
+  
+  :after {
+    clear: both;
+  }
+}
+
+body {
+  font-family: 'Spinnaker', sans-serif;
+  font-size: 16px;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Spinnaker', sans-serif;
+  font-size: 16px;
+}
+input,textarea,select {
+  font-family: 'Times New Roman', sans-serif !Important;
+  font-size: 16px;
+}
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  
+  max-height: 500px !Important;
+  }
+  
+.img-thumb {
+  max-height: 125px !Important;
+}
+
+.painting {
+  max-height: 400px !Important;
+}
+
+pre {
+  background-color: #f0f0f0;
+}
+
+// override for the 'Home' navigation link
+.navbar-brand {
+  font-size: inherit;
+  
+  margin: -1px;
+  background-color: $color-pri-l;
+  
+  border: 1px solid $color-pri-l;
+  //border-bottom: none;  
+}
+
+.headbar {
+  @extend .navbar-inverse;
+  background-color: #0b1e05//$color-pri;
+  //background: #0b1e05//url("banner_background.png") repeat top left; 
+  //box-shadow: 0 0 30px #220509;
+  
+  h1 {
+    color: $creative-green;
+    text-align: center;
+  }
+  
+  a {
+    color: $color-pri-d !Important;
+  }
+  
+  a:hover {
+    color: $color-pri-l !Important;
+  }
+}
+
+.nav-tile {
+  @extend .navbar-brand;
+  //@extend .col-xs-3;
+  
+  color: $color-pri-d;
+  //box-shadow: 0 0 10px $color-comp-d;
+  
+  width: 15%;
+  height:40px;
+  line-height: 15px;
+  
+  padding-top: 10px;
+  
+  margin-left: 1%;
+}
+
+.nav > a {
+  text-align:center;
+}
+
+.centered {
+  @include center-block();
+  float: none;
+}
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.form {
+  @extend .col-md-6;
+  }
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+  }
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  //background-color: $creative-purp-l;
+  padding-bottom: 75px;
+  padding-top: 15px;
+  margin-top: 85px; // accommodate the navbar
+  //box-shadow: 0 0 20px $color-comp-d;
+  
+  
+  }
+  
+#alert-box {
+  position: fixed;
+  top: 90px;
+  right: 0%;
+  z-index: 999;
+  opacity: .90;
+}
+section {
+  @extend .row;
+  margin-top: 20px;
+  }

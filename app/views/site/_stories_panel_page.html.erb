@@ -1,0 +1,37 @@
+<div class="floating-grid3">
+	<div class="cell">
+		<% unless @first_keys.nil? %>
+			<% @first_keys.each do |key| %>
+				<div class="content-panel">
+					<div class="reading-pane" style="font-size: smaller;">
+						<div class="text"><%= key %></div><%= simple_format @content[key] %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class="cell">
+		<% unless @mid_keys.nil? %>
+			<% @mid_keys.each do |key| %>
+				<div class="content-panel">
+					<div class="reading-pane" style="font-size: smaller;">
+						<div class="text"><%= key %></div><%= simple_format @content[key] %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div class="cell">
+		<% unless @last_keys.nil? %>
+			<% @last_keys.each do |key| %>
+				<div class="content-panel">
+					<div class="reading-pane" style="font-size: smaller;">
+						<div class="text"><%= key %></div><%= simple_format @content[key] %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

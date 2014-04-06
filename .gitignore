@@ -7,11 +7,14 @@ capybara-*.html
 /.bundle
 /vendor/bundle
 /log/*
-/tmp/*
+/Temp/cache/*
+temp_*
+/tmp/cache/*
 /db/*.sqlite3
 /public/system/*
 /coverage/
 /spec/tmp/*
+/.settings/
 **.orig
 rerun.txt
 pickle-email-*.html

@@ -1,0 +1,32 @@
+
+<%= page_title_tag "donategraphx.png"%>
+
+<div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 centered content-panel">
+	<%= form_for(@donation) do |f| %>
+	  <% if @donation.errors.any? %>
+	    <div id="error_explanation" style="">
+	      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+	
+	      <ul>
+	      <% @donation.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+		
+		<%= hidden_field(:donation, :work_id, value: @donation.work_id) %>
+		<%= hidden_field(:donation, :user_id, value: @donation.user_id) %>
+		<%= hidden_field(:donation, :site_donation, value: @donation.site_donation) %>
+		<%= hidden_field(:donation, :approved, value: @donation.approved) %>
+		
+	  <div class="form-row">
+	    <%= f.label :amount, class: "form-label"%>
+	    <%= f.text_field :amount, class: "form-input" %>
+	  </div>
+	  
+	  <br /><%= f.submit "Proceed to Paypal", class: "btn btn-large bttn centered"%>
+	  
+	<% end %>
+</div>
+

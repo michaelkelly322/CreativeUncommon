@@ -1,0 +1,39 @@
+<% provide(:title, 'Poetry') %>
+
+<div class="floating-grid3">
+	<div class="cell">
+		<% unless @first_keys.nil? %>
+			<% @first_keys.each do |key| %>
+				<div class="content-panel">
+					<div class="reading-pane" style="font-size: smaller;">
+						<a href="/poetry/<%= key %>"><div class="text"><%= key %></div></a><pre style="border: none;"><p style='line-height: initial;'><%= @content[key] %></pre>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class="cell">
+		<% unless @mid_keys.nil? %>
+			<% @mid_keys.each do |key| %>
+				<div class="content-panel">
+					<div class="reading-pane" style="font-size: smaller;">
+						<a href="/poetry/<%= key %>"><div class="text"><%= key %></div></a><pre style="border: none;"><p style='line-height: initial;'><%= @content[key] %></pre>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div class="cell">
+		<% unless @last_keys.nil? %>
+			<% @last_keys.each do |key| %>
+				<div class="content-panel">
+					<div class="reading-pane" style="font-size: smaller;">
+						<a href="/poetry/<%= key %>"><div class="text"><%= key %></div></a><pre style="border: none;"><p style='line-height: initial;'><%= @content[key] %></pre>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

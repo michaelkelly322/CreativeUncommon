@@ -1,0 +1,29 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//@import "forms.css.scss";
+@import "shared/layout_helpers.css.scss";
+
+.half-height {
+  max-height: 200px;
+}
+
+.gravatar-wrap-80 {
+  height: 80px;
+  width: 80px;
+  
+  margin-left: -15px;
+}
+
+.left-adjust {
+  margin-left: -15px;
+}
+
+.gravatar {
+  margin-left: -1px;
+}
+
+.profile-top {
+  padding-bottom: 10px;
+  white-space: nowrap;
+}

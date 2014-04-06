@@ -1,0 +1,34 @@
+<!--<%# navigation styled for Bootstrap 3.0 %>-->
+<nav class="navbar headbar navbar-fixed-top">
+  <div class="container">
+  	<a href="/"><%= image_tag("homepageasset.png", alt: "Logo", style: "height: 85px;") %></a>
+  </div>
+  
+  <div id='badges-left' class="hidden-xs">
+  	<%= image_tag "OpenSourceGraphx.png", alt: 'OpenSource', style: "height: 65px;", class: "pull-left"%>
+  	<%= image_tag "WindEnergyGraphx.png", alt: 'Powered by Wind', style: "height: 65px;", class: "pull-left" %>
+  </div>
+  
+  <div id='badges-right'>
+  	
+  </div>
+  
+  <div class="row centered" style="display:none;">
+  	<div class="col-xs-12 col-md-6 centered">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      
+	    </div>
+	    <div class="collapse navbar-collapse">
+	      <ul class="nav navbar-nav centered">
+	        <%= render 'layouts/navigation_links' %>
+	      </ul>
+	    </div>
+	</div>
+  </div>
+</nav>
