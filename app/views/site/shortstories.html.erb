@@ -6,7 +6,7 @@
 			<% @first_keys.each do |key| %>
 				<div class="content-panel">
 					<div class="reading-pane" style="font-size: smaller;">
-						<a href="/shortstories/<%= key %>"><div class="text"><%= key %></div></a><%= simple_format truncate @content[key], length: 200 %>
+						<a href="/shortstories/<%= key %>"><div class="text"><%= key %></div></a><%= simple_format truncate @content[key].gsub("&nbsp", ""), length: 200 %>
 					</div>
 				</div>
 			<% end %>
@@ -18,7 +18,7 @@
 			<% @mid_keys.each do |key| %>
 				<div class="content-panel">
 					<div class="reading-pane" style="font-size: smaller;">
-						<a href="/shortstories/<%= key %>"><div class="text"><%= key %></div></a><%= simple_format truncate @content[key], length: 200 %>
+						<a href="/shortstories/<%= key %>"><div class="text"><%= key %></div></a><%= simple_format truncate @content[key].gsub("&nbsp", ""), length: 200 %>
 					</div>
 				</div>
 			<% end %>
@@ -30,7 +30,7 @@
 			<% @last_keys.each do |key| %>
 				<div class="content-panel">
 					<div class="reading-pane" style="font-size: smaller;">
-						<a href="/shortstories/<%= key %>"><div class="text"><%= key %></div></a><%= simple_format truncate @content[key], length: 200 %>
+						<a href="/shortstories/<%= key %>"><div class="text"><%= key %></div></a><%= simple_format truncate @content[key].gsub("&nbsp", ""), length: 200 %>
 					</div>
 				</div>
 			<% end %>
