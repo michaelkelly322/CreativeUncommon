@@ -81,6 +81,19 @@ module SiteHelper
       content[photo_name] = pipeline_path
     end
     
+    Dir.glob(photo_path.join('*.jpg')) do |file|
+      pipeline_path = file.split('images/').last
+      file_name = file.split('/').last
+      
+      photo_name_raw = file_name.split('.').first
+      photo_name_raw.slice!('_cover')
+      photo_name_raw.slice!('e_')
+      photo_name = photo_name_raw.split.map(&:capitalize).join(' ')
+      
+      
+      content[photo_name] = pipeline_path
+    end
+    
     return content
   end
 end
