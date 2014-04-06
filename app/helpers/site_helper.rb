@@ -68,13 +68,13 @@ module SiteHelper
     photo_path = Rails.root.join('app', 'assets', 'images', path)
     content = Hash.new
     
-    logger.debug 'photo_path = ' + photo_path.to_s
+    logger.error 'photo_path = ' + photo_path.to_s
     
     Dir.glob(photo_path.join('*.JPG')) do |file|
       pipeline_path = file.split('images/').last
       file_name = file.split('/').last
       
-      logger.debug 'pipeline_path(JPG) = ' + pipeline_path.to_s
+      logger.error 'pipeline_path(JPG) = ' + pipeline_path.to_s
       
       photo_name_raw = file_name.split('.').first
       photo_name_raw.slice!('_cover')
@@ -89,7 +89,7 @@ module SiteHelper
       pipeline_path = file.split('images/').last
       file_name = file.split('/').last
       
-      logger.debug 'pipeline_path(jpg) = ' + pipeline_path.to_s
+      logger.error 'pipeline_path(jpg) = ' + pipeline_path.to_s
       
       photo_name_raw = file_name.split('.').first
       photo_name_raw.slice!('_cover')
