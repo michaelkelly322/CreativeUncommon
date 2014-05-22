@@ -1,0 +1,11 @@
+<div class="content-panel col-lg-5 col-md-6 col-sm-7 col-xs-7 centered">
+  <%= form_tag '/subscribe_email', method: 'post' do %>
+    <div class="form-row">
+      <%= label_tag :email, "Email: ", class: "cell form-label" %>
+      <%= text_field_tag :email, nil, class: "cell form-input", style: "width: 80%" %>
+    </div>
+    <div class="form-row">
+      <%= submit_tag 'Subscribe', class: "cell btn btn-large bttn centered", style: "font-family: Spinnaker, sans-serif !Important;" %>
+    </div>
+  <% end %>
+</div>

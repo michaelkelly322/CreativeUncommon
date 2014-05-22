@@ -8,6 +8,7 @@ capybara-*.html
 /log/*
 /Temp/cache/*
 temp_*
+/tmp
 /tmp/cache/*
 /tmp/**/*
 /db/*.sqlite3
