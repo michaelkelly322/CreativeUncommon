@@ -8,7 +8,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  
+  gem 'pry'
   gem 'spork-rails'
   gem 'guard-spork'
   gem 'guard-bundler'
@@ -23,11 +23,11 @@ end
 group :test do
   gem 'selenium-webdriver'
   gem 'capybara', '2.1.0'
-  
+
   gem 'rb-notifu'
   #gem 'win32console'
   gem 'wdm'
-  
+
   gem 'factory_girl_rails'
 end
 
@@ -70,14 +70,6 @@ group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'rails_serve_static_assets'
 end
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'mailchimp-api'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

@@ -2,14 +2,15 @@
 *.sassc
 .sass-cache
 capybara-*.html
-.rspec
 .rvmrc
 /.bundle
 /vendor/bundle
 /log/*
 /Temp/cache/*
 temp_*
+/tmp
 /tmp/cache/*
+/tmp/**/*
 /db/*.sqlite3
 /public/system/*
 /coverage/

@@ -12,7 +12,13 @@ TreeHouse::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'site#home'
-  
+
+  # Subscription routes
+  match '/testsub', to: 'site#testsub', via: 'get'
+  match '/subscribe', to: 'site#subscribe', via: 'get'
+  match '/subscribe_email', to: 'site#subscribe_email', via: 'post'
+  match '/unsubscribe' , to: 'site#unsubscribe', via: 'get'
+  match '/unsubscribe_email', to: 'site#unsubsribe_email', via: 'post'
   # => Site Routes
   #  match '/signin',   to: 'sessions#new',     via: 'get'
   #  match '/logout',  to: 'sessions#destroy',  via: 'delete'
@@ -26,35 +32,35 @@ TreeHouse::Application.routes.draw do
     match '/photography', to: 'site#photography', via: 'get'
       match '/photography/:series_name', to: 'site#photography_detail', via: 'get'
       match '/photo/:series_name/:name', to: 'site#photo', via: 'get'
-    
+
     match '/painting', to: 'site#painting', via: 'get'
       match '/painting/:name', to: 'site#painting_detail', via: 'get'
-    
+
     match '/drawing', to: 'site#drawing', via: 'get'
-    
+
     match '/parastories', to: 'site#parastories', via: 'get'
       match '/parastories/:name', to: 'site#parastories', via: 'get'
-    
+
     match '/shortstories', to: 'site#shortstories', via: 'get'
       match '/shortstories/:name', to: 'site#short_detail', via: 'get'
-    
+
     match '/poetry', to: 'site#poetry', via: 'get'
       match '/poetry/:name', to: 'site#poetry_detail', via: 'get'
-    
+
     match '/thankyou', to: 'site#thankyou', via: 'get'
   #  match '/stats', to: 'site#stats',        via: 'get'
-    
+
   #  match '/download/:id', to: 'works#topdf',   via: 'get', defaults: { format: 'pdf'}
   #  match '/get_user_image/:id', to: 'users#get_user_image', via: 'get'
   # => Post routes
   #  match '/drafts',  to: 'works#create_draft',via: 'post'
   #  match '/drafts/:id',  to: 'works#save_as_draft',via: 'patch'
-    
+
   # => Donation Routes
   #  match '/donate/:type', to: 'donations#new', via: 'get'
   #  match '/donations/cancel/:id', to: 'donations#cancel', via: 'get'
   #  match '/donations/approve/:id', to: 'donations#approve', via: 'get'
-    
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
